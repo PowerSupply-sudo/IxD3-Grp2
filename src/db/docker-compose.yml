@@ -1,0 +1,8 @@
+database:
+  image: mcr.microsoft.com/mssql/server:2022-latest
+  container_name: wabd-database
+  port: 3306
+  volumes: -/var/opt/mssql
+  environment:
+    SA_PASSWORD: "ixdGRP3"
+    ACCEPT_EULA: "Y"
