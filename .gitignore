@@ -1,0 +1,68 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Eclipse
+.metadata/
+.classpath
+.project
+.settings/
+
+# IntelliJ
+*.iml
+.idea/
+out/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+.nb-gradle/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Temporary files
+*~
+*.swp
+*.swo
+
+# Maven wrapper (if present) - keep the jar but ignore other wrapper-generated files
+/.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Test / coverage
+coverage/
+jacoco.exec
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# dotenv files
+.env
+.env.*
+
+# IDE run configs and local env
+local.properties

@@ -1,3 +1,13 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.home": "C:\\Program Files\\BellSoft\\LibericaJDK-24",
+    "java.jdt.ls.java.home": "C:\\Program Files\\BellSoft\\LibericaJDK-24",
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-24",
+            "path": "C:\\Program Files\\BellSoft\\LibericaJDK-24",
+            "default": true
+        }
+    ]
 }
+
