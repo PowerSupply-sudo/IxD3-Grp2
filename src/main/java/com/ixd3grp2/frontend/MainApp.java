@@ -1,4 +1,4 @@
-package frontend;
+package com.ixd3grp2.frontend;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -21,5 +21,9 @@ public class MainApp extends Application {
         stage.setScene(scene);
         stage.setTitle("TEST TIELE");
         stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 }
