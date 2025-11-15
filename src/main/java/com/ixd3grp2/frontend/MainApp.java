@@ -1,4 +1,4 @@
-package frontend;
+package com.ixd3grp2.frontend;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
