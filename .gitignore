@@ -67,4 +67,4 @@ desktop.ini
 # IDE run configs and local env
 local.properties
 
-target
+.vscode
