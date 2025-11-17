@@ -24,7 +24,5 @@ public class MainApp extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    // Removed static main; this class is a JavaFX Application only.
 }
