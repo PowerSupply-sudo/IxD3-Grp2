@@ -55,7 +55,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.ixd3grp2.frontend.MainApp</mainClass>
+                    <mainClass>com.ixd3grp2.main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
