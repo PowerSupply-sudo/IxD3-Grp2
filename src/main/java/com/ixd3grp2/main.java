@@ -1,9 +1,5 @@
 package com.ixd3grp2;
 
-/**
- * Simple launcher that delegates to the JavaFX Application class `MainApp`.
- * The project's pom.xml references this class as the `mainClass` for the javafx plugin.
- */
 public class main {
     public static void main(String[] args) {
         // Dispatcher: decide whether to run frontend (JavaFX) or backend tasks.
@@ -11,8 +7,8 @@ public class main {
             String cmd = args[0].toLowerCase();
             switch (cmd) {
                 case "frontend":
-                    // Launch the JavaFX Application
-                    javafx.application.Application.launch(com.ixd3grp2.frontend.MainApp.class, args);
+                    // Launch the JavaFX Application (welcome screen)
+                    javafx.application.Application.launch(com.ixd3grp2.frontend.welcomeFE.class, args);
                     break;
                 case "initdb":
                 case "backend-init":
@@ -36,8 +32,8 @@ public class main {
                     break;
             }
         } else {
-            // Default behaviour: start frontend
-            javafx.application.Application.launch(com.ixd3grp2.frontend.MainApp.class, args);
+            // Default behaviour: start frontend (welcome screen)
+                javafx.application.Application.launch(com.ixd3grp2.frontend.welcomeFE.class, args);
         }
     }
 
