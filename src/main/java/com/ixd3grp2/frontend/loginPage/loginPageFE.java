@@ -33,7 +33,7 @@ public class loginPageFE extends Application {
         VBox contentBox = new VBox(15);
         contentBox.setAlignment(Pos.TOP_CENTER);
         contentBox.setMaxWidth(320);
-        contentBox.setPadding(new Insets(50, 20, 20, 20));
+        contentBox.setPadding(new Insets(150, 20, 20, 20)); //TOP, BOTTOM, LEFT, RIGHT. this is the order of the padding :)
 
 
         Label lblWelcome = new Label("welcome to");
