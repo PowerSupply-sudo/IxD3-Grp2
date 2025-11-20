@@ -14,8 +14,8 @@ import java.io.IOException;
 
 public class welcomeFE extends Application {
 
-    private static final double WIDTH = 1197;
-    private static final double HEIGHT = 2256;
+    private static final double WIDTH = 1197/3;
+    private static final double HEIGHT = 2256/3;
 
     @Override
     public void start(Stage stage) {
