@@ -1,7 +1,7 @@
 package com.ixd3grp2;
 
 public class main {
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         // Dispatcher: decide whether to run frontend (JavaFX) or backend tasks.
         if (args != null && args.length > 0) {
             String cmd = args[0].toLowerCase();
