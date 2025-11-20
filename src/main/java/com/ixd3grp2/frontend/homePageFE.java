@@ -3,7 +3,7 @@ package com.ixd3grp2.frontend;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-//import javafx.scene.Group;
+
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -103,6 +103,6 @@ public class homePageFE extends Application{
         /* Launch the Application class in which is in */
         launch(args);
 
-        /*the above is equivalent to calling application.launch(SimpleStage.class, args); */
+        // The above is equivalent to calling application.launch(SimpleStage.class, args);
     }
 }
