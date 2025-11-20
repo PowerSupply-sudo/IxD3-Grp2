@@ -1,0 +1,66 @@
+
+
+/*VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV*/
+/*IMPORTANT: LOGINPAGE STYLING WAS ADDED BY AN LLM TO QUICKLY ASSIST WITH THE STYLING SETUP. WILL CHECK OUT AND POLISH TOMORROW*/
+/*VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV*/
+
+/* 1. Root Background */
+.root {
+    -fx-background-color: white;
+}
+
+/* 2. Input Fields & Containers (The boxes with the dark grey border) */
+.input-box {
+    -fx-background-color: white;
+    -fx-border-color: #333333;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    /* This padding pushes content away from the border */
+    -fx-padding: 2 5 2 2; 
+}
+
+/* 3. The text input inside the containers */
+.inner-text-field {
+    -fx-background-color: transparent; /* Make it invisible so only the container border shows */
+    -fx-padding: 8;
+}
+
+/* 4. Standard Text Fields (that aren't inside containers) */
+.standard-text-field {
+    -fx-background-color: white;
+    -fx-border-color: #333333;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 8;
+}
+
+/* 5. The Arrow Icon */
+.arrow-icon {
+    -fx-text-fill: #666666;
+    -fx-font-size: 14px;
+    -fx-padding: 0  64 0 0;
+}
+
+/* 6. Forgot Password Link */
+.forgot-link {
+    -fx-text-fill: #666666;
+    -fx-underline: true;
+    -fx-border-width: 0;
+}
+
+/* Remove the blue click highlight box from the link */
+.forgot-link:visited {
+    -fx-text-fill: #666666;
+}
+.forgot-link:focused {
+    -fx-border-width: 0;
+}
+
+/* Optional: Specific Labels */
+.label-title {
+    -fx-padding: 0 0 30 0; /* Bottom padding */
+}
+
+
+
+/*PLEASE READ THE FIRST COMMENT FOR CLARIFICATION*/

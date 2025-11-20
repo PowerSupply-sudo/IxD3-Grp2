@@ -1,0 +1,1 @@
+i just added this because i hate how visual studio code collapses folders with no content. our icons will eventually be here
