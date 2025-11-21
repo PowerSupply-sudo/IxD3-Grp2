@@ -1,8 +1,21 @@
-database:
-  image: mcr.microsoft.com/mssql/server:2022-latest
-  container_name: wabd-database
-  port: 3306
-  volumes: -/var/opt/mssql
-  environment:
-    SA_PASSWORD: "ixdGRP3"
-    ACCEPT_EULA: "Y"
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    container_name: wishlistapp-db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      # For local development only. Move secrets to a .env or Docker secrets for production.
+      MYSQL_ROOT_PASSWORD: example_root_password
+      MYSQL_DATABASE: wishlistapp
+      MYSQL_USER: wishlistuser
+      MYSQL_PASSWORD: wishlistpass
+    volumes:
+      - db_data:/var/lib/mysql
+      # Run the initialization SQL on first container start
+      - ./user-logins.sql:/docker-entrypoint-initdb.d/01-user-logins.sql:ro
+
+volumes:
+  db_data:

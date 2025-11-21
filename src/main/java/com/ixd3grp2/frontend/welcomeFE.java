@@ -7,10 +7,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import com.ixd3grp2.frontend.loginPage.loginPageFE;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 
 public class welcomeFE extends Application {
 
@@ -48,39 +48,29 @@ public class welcomeFE extends Application {
                 e.printStackTrace();
             }
         } else {
-            // Not logged in: try to forward to loginFE if available; otherwise show placeholder
+            // Not logged in: open the dedicated login page (loginPageFE)
             try {
-                Class<?> loginClass = Class.forName("com.ixd3grp2.frontend.loginFE");
-                Object loginInstance = loginClass.getDeclaredConstructor().newInstance();
-                // Attempt to call start(Stage) on the loginFE instance
-                loginClass.getMethod("start", Stage.class).invoke(loginInstance, stage);
+                new loginPageFE().start(stage);
                 return;
-            } catch (ClassNotFoundException cnfe) {
-                // loginFE not yet implemented — show a temporary placeholder with a button
+            } catch (Exception e) {
+                System.err.println("Failed to open loginPageFE:");
+                e.printStackTrace();
+                // Fall back to a minimal placeholder so the app remains usable
                 StackPane placeholder = new StackPane();
-                Text info = new Text("Login screen is under development.\nClick to simulate login.");
-                Button simulate = new Button("Simulate login -> Home");
-                simulate.setOnAction(ae -> {
-                    // Create a simple marker file so subsequent launches route to homePageFE
-                    try {
-                        createSessionMarker();
-                    } catch (IOException ioException) {
-                        // ignore
-                    }
+                Text info = new Text("Login screen is not available.\nPlease try again later.");
+                Button back = new Button("Continue to Home (dev)");
+                back.setOnAction(ae -> {
                     try {
                         new homePageFE().start(stage);
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
                 });
-                placeholder.getChildren().addAll(info, simulate);
+                placeholder.getChildren().addAll(info, back);
                 Scene phScene = new Scene(placeholder, WIDTH, HEIGHT);
                 stage.setScene(phScene);
                 stage.show();
                 return;
-            } catch (Exception e) {
-                System.err.println("Failed to launch loginFE via reflection:");
-                e.printStackTrace();
             }
         }
 
@@ -98,8 +88,6 @@ public class welcomeFE extends Application {
         return marker.exists();
     }
 
-    private void createSessionMarker() throws IOException {
-        File marker = new File("session.logged");
-        if (!marker.exists()) marker.createNewFile();
-    }
+    // Previously used to simulate login by creating a session marker file.
+    // No longer needed because the app now navigates to a real login page.
 }
