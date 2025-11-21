@@ -59,7 +59,11 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
+<<<<<<< HEAD
                     <mainClass>com.ixd3grp2.main</mainClass> 
+=======
+                    <mainClass>com.ixd3grp2.frontend.createWishListFE</mainClass> 
+>>>>>>> 8473276 (Tilføjet 2 nye filer)
                 </configuration>
             </plugin>
         </plugins>

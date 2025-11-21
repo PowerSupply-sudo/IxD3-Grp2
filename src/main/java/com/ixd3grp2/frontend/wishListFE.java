@@ -9,26 +9,14 @@ import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-<<<<<<< HEAD
-// NOTE: Det kan være at extendere Application ikke er nødvendigt her, 
-// afhængigt af hvordan denne klasse bruges i resten af applikationen.
-// Gælder også ift. @Override, så det kan fjernes hvis ikke nødvendigt.
-// Det samme gælder også for public void start(Stage stage) metoden,
-
-
-=======
->>>>>>> 8473276 (Tilføjet 2 nye filer)
-public class infoAboutWishFE extends Application {
+public class wishListFE extends Application {
     @Override
-     public void start(Stage stage) {
-        // Implementation for infoAboutWishFE goes here
-
-<<<<<<< HEAD
-=======
+    public void start(Stage stage) {
+        // Implementation for wishListFE goes here
 
 
 
->>>>>>> 8473276 (Tilføjet 2 nye filer)
+        
       //Create the bottombar
         HBox bottombar = new HBox();
         bottombar.setSpacing(40);// Space between buttons
@@ -48,21 +36,11 @@ public class infoAboutWishFE extends Application {
         homeButton.setStyle(buttonStyle); 
         profileButton.setStyle(buttonStyle); 
 
-<<<<<<< HEAD
-=======
-        /**
-        button = new button();
-        searchButton.setStyle("-fx-border-color: #31672aff;");// Green background
-        homeButton.setStyle("-fx-border-color: #31672aff;"); // Green background
-        profileButton.setStyle("-fx-border-color: #31672aff;"); // Green background */
-
->>>>>>> 8473276 (Tilføjet 2 nye filer)
         // Add buttons to the bottombar
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
     
         // Use a BorderPane to position the bottombar at the bottom
         BorderPane layout = new BorderPane();
-        //layout.setCenter(centerContent);//// Main content in the center
         layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout
        
 
@@ -75,4 +53,5 @@ public class infoAboutWishFE extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    
 }
