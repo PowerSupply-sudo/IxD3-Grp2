@@ -66,7 +66,7 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
             "-fx-background-radius: 12px;"
         );// Sætter stil for boksen med polstring, kantfarve, kantbredde, kantens runding, baggrundsfarve og baggrundens runding
 
-        wishBox.setMaxWidth(300);// Sætter maksimal bredde for boksen for at forhindre at den bliver for bred
+        wishBox.setMaxWidth(310);// Sætter maksimal bredde for boksen for at forhindre at den bliver for bred
 
         // Tilføj alle elementer til boksen
         wishBox.getChildren().addAll(wishTitle, wishListButtons, continueButton);// Tilføjer tekstfeltet, ønskelisteknapperne og fortsætknappen til boksen
