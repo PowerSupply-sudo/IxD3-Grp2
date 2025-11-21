@@ -1,0 +1,147 @@
+package com.ixd3grp2.frontend;
+
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Button;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Modality;
+
+public class addWishFE extends Application{
+        @Override
+    public void start(Stage stage) {        
+        //Create the bottombar
+        HBox bottombar = new HBox();
+        bottombar.setSpacing(40);// Space between buttons
+        bottombar.setStyle("-fx-background-color: #b1d06aff; -fx-padding: 10px; -fx-min-height: 60px;"); // Ligth greenbackground med fixed height
+        //bottombar.setLayoutY(2256/3 - 50); // Position at the bottom of the scene
+        bottombar.setAlignment(Pos.CENTER);// Center buttons horizontally and vertically
+
+
+        // Create buttons for the bottom bar
+        Button searchButton = new Button("Search");
+        Button homeButton = new Button("Home");
+        Button profileButton = new Button("Profile");
+
+        // Add buttons to the bottom bar, and the bottons placed in the correct order, and the size of the buttons
+        String buttonStyle = "-fx-border-color: #31672aff; -fx-text-fill: #31672aff; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-background-radius: 5px; -fx-border-radius: 5px;";
+        searchButton.setStyle(buttonStyle);
+        homeButton.setStyle(buttonStyle); 
+        profileButton.setStyle(buttonStyle); 
+
+
+        // Add buttons to the bottombar
+        bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
+    
+        // Create center content
+        VBox centerContent = new VBox();
+        centerContent.setAlignment(Pos.CENTER);
+        
+        // Use a BorderPane to position the bottombar at the bottom
+        BorderPane layout = new BorderPane();
+        layout.setCenter(centerContent);//// Main content in the center
+        layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout
+       
+
+        // We instantiate a new Scene of size 300x250, with white background and and associated scene graph rooted in 'layout'
+        Scene scene = new Scene(layout, 1197/3, 2256/3, Color.WHITE);
+
+        
+        // We set the scene on the stage and display it
+        stage.setTitle("Stage Title");
+        stage.setScene(scene);
+        stage.show();
+
+        // Add action to trigger the wish dialog (example: add to home button)
+        homeButton.setOnAction(e -> showAddWishDialog());
+    }
+
+   private void showAddWishDialog() {
+        Dialog<String> dialog = new Dialog<>();
+        dialog.setTitle("Add Wish");
+        
+        VBox content = new VBox(10);
+        content.setStyle("-fx-padding: 15px;");
+        
+        TextField wishTitle = new TextField();
+        wishTitle.setPromptText("Enter Wish title");
+        
+        Button addToWishlist = new Button("Add to wishlist");
+        Button newWishlist = new Button("New wishlist");
+        
+        HBox buttonBox = new HBox(10);
+        buttonBox.setAlignment(Pos.CENTER);
+        buttonBox.getChildren().addAll(addToWishlist, newWishlist);
+        
+        Button continueButton = new Button("Continue");
+        continueButton.setStyle("-fx-padding: 10px 40px;");
+        
+        content.getChildren().addAll(wishTitle, buttonBox, continueButton);
+        dialog.getDialogPane().setContent(content);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+        dialog.showAndWait();
+     }
+
+     // NY: Kaldebar fra andre klasser - åbner add-wish vindue som et modal window
+     public static void showAddWishWindow(Stage owner) {
+        Stage stage = new Stage();
+        if (owner != null) stage.initOwner(owner);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.setTitle("Add Wish");
+
+        HBox bottombar = new HBox();
+        bottombar.setSpacing(40);// Space between buttons
+        bottombar.setStyle("-fx-background-color: #b1d06aff; -fx-padding: 10px; -fx-min-height: 60px;"); // Ligth greenbackground med fixed height
+        bottombar.setAlignment(Pos.CENTER);// Center buttons horizontally and vertically
+
+        Button searchButton = new Button("Search");
+        Button homeButton = new Button("Home");
+        Button profileButton = new Button("Profile");
+        String buttonStyle = "-fx-border-color: #31672aff; -fx-text-fill: #31672aff; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-background-radius: 5px; -fx-border-radius: 5px;";
+       
+        searchButton.setStyle(buttonStyle);
+        homeButton.setStyle(buttonStyle);
+        profileButton.setStyle(buttonStyle);
+        bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
+        
+        VBox content = new VBox();
+        content.setAlignment(Pos.CENTER);
+        content.setStyle("-fx-padding: 15px;");
+
+        TextField wishTitle = new TextField();
+        wishTitle.setPromptText("Enter Wish title");
+
+        Button addToWishlist = new Button("Add to wishlist");
+        Button newWishlist = new Button("New wishlist");
+      
+        HBox buttonBox = new HBox(10);
+        buttonBox.setAlignment(Pos.CENTER);
+        buttonBox.getChildren().addAll(addToWishlist, newWishlist);
+
+        Button continueButton = new Button("Continue");
+        continueButton.setStyle("-fx-padding: 10px 40px;");
+        content.getChildren().addAll(wishTitle, buttonBox, continueButton);
+
+        BorderPane layout = new BorderPane();
+        layout.setCenter(content);
+        layout.setBottom(bottombar);
+
+        Scene scene = new Scene(layout, 400, 300, Color.WHITE);
+        stage.setScene(scene);
+        stage.showAndWait();//modal window
+
+     }
+    public static void main(String[] args) {
+        /* Launch the Application class in which is in */
+        launch(args);
+
+        /*the above is equivalent to calling application.launch(SimpleStage.class, args); */
+    }
+}

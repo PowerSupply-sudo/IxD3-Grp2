@@ -1,6 +1,7 @@
 package com.ixd3grp2.frontend;
 
 import javafx.application.Application;
+//import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 
@@ -8,10 +9,14 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
+//import javafx.scene.control.Dialog;
+//import javafx.scene.control.TextField;
+//import javafx.scene.control.ButtonType;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 
 public class homePageFE extends Application{
     @Override
@@ -34,9 +39,12 @@ public class homePageFE extends Application{
         textContent.setStyle("-fx-padding: -500px 0 0 0;"); // Add top padding to move content up
         textContent.getChildren().addAll(headline, subtext); // Add headline and subtext to VBox
 
-        // Create the "Add list +" button
-        Button addWishButton = new Button("Add list +");
+       // Create the "Add list +" button
+        Button addWishButton = new Button("Add Wish +");
         addWishButton.setStyle("-fx-background-color: #b1d06aff; -fx-text-fill: #31672aff; -fx-border-color: #31672aff; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-background-radius: 5px;"); // Styling for the button
+        
+        // Gør knappen klikbar — åbn addWishFE som et modulært vindue
+       addWishButton.setOnAction(e -> addWishFE.showAddWishScene(stage));
 
         // We create the root containing all the above
         //Group root = new Group();
@@ -99,6 +107,34 @@ public class homePageFE extends Application{
         stage.setScene(scene);
         stage.show();
     }
+    
+    
+    /**VBox content = new VBox(12);
+    content.setPadding(new Insets(12));
+    content.setAlignment(Pos.CENTER);
+
+    TextField wishTitle = new TextField();
+    wishTitle.setPromptText("Enter Wish title");
+
+    HBox buttonRow = new HBox(10);
+    buttonRow.setAlignment(Pos.CENTER);
+    Button addToWishlist = new Button("Add to wishlist");
+    Button newWishlist = new Button("New wishlist");
+    buttonRow.getChildren().addAll(addToWishlist, newWishlist);
+
+    Button continueButton = new Button("Continue");
+    continueButton.setOnAction(ev -> {
+       dialog.close();
+    });
+    continueButton.setStyle("-fx-padding: 8px 36px;");
+
+    content.getChildren().addAll(wishTitle, buttonRow, continueButton);
+
+    dialog.getDialogPane().setContent(content);
+    dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+    dialog.showAndWait();
+    */
+    
     public static void main(String[] args) {
         /* Launch the Application class in which is in */
         launch(args);
