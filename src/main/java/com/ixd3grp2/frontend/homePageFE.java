@@ -1,17 +1,12 @@
 package com.ixd3grp2.frontend;
 
 import javafx.application.Application;
-//import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
-//import javafx.scene.control.Dialog;
-//import javafx.scene.control.TextField;
-//import javafx.scene.control.ButtonType;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -88,8 +83,8 @@ public class homePageFE extends Application{
         searchButton.setStyle("-fx-border-color: #31672aff;");// Green background
         homeButton.setStyle("-fx-border-color: #31672aff;"); // Green background
         profileButton.setStyle("-fx-border-color: #31672aff;"); // Green background */
-
         // Add buttons to the bottombar
+        
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
     
         // Use a BorderPane to position the bottombar at the bottom
