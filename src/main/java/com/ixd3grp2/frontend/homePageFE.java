@@ -127,10 +127,16 @@ public class homePageFE extends Application{
     // (do not redeclare `layout` here — it was declared above)
 =======
         // Use a BorderPane to position the bottombar at the bottom
+<<<<<<< HEAD
         /**BorderPane layout = new BorderPane();
         layout.setCenter(mainContent);//// Main content in the center
         layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout*/
 >>>>>>> a2ec60a (tilføjet Wish lists, og Wish list full view(wishListDetailFE))
+=======
+        BorderPane layout = new BorderPane();
+        layout.setCenter(centerContent);//// Main content in the center
+        layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout
+>>>>>>> 1f35897 (Updated homepage)
        
 
         // We instantiate a new Scene of size 300x250, with white background and and associated scene graph rooted in 'layout'
