@@ -10,20 +10,14 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a2ec60a (tilføjet Wish lists, og Wish list full view(wishListDetailFE))
 // NOTE: Det kan være at extendere Application ikke er nødvendigt her, 
 // afhængigt af hvordan denne klasse bruges i resten af applikationen.
 // Gælder også ift. @Override, så det kan fjernes hvis ikke nødvendigt.
 // Det samme gælder også for public void start(Stage stage) metoden,
 
 
-<<<<<<< HEAD
 =======
->>>>>>> 8473276 (Tilføjet 2 nye filer)
-=======
->>>>>>> a2ec60a (tilføjet Wish lists, og Wish list full view(wishListDetailFE))
+>>>>>>> 677c623 (Tilføjet 2 nye filer)
 public class infoAboutWishFE extends Application {
     @Override
      public void start(Stage stage) {
@@ -34,7 +28,7 @@ public class infoAboutWishFE extends Application {
 
 
 
->>>>>>> 8473276 (Tilføjet 2 nye filer)
+>>>>>>> 677c623 (Tilføjet 2 nye filer)
       //Create the bottombar
         HBox bottombar = new HBox();
         bottombar.setSpacing(40);// Space between buttons
@@ -55,7 +49,6 @@ public class infoAboutWishFE extends Application {
         profileButton.setStyle(buttonStyle); 
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
         /**
         button = new button();
@@ -63,9 +56,7 @@ public class infoAboutWishFE extends Application {
         homeButton.setStyle("-fx-border-color: #31672aff;"); // Green background
         profileButton.setStyle("-fx-border-color: #31672aff;"); // Green background */
 
->>>>>>> 8473276 (Tilføjet 2 nye filer)
-=======
->>>>>>> 8f47c9c (new frontend files with general mockup)
+>>>>>>> 677c623 (Tilføjet 2 nye filer)
         // Add buttons to the bottombar
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
     
