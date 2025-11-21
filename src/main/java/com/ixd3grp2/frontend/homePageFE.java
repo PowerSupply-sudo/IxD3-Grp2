@@ -94,7 +94,7 @@ public class homePageFE extends Application{
     
         // Use a BorderPane to position the bottombar at the bottom
         BorderPane layout = new BorderPane();
-        layout.setCenter(centerContent);//// Main content in the center
+        layout.setCenter(centerContent); // Main content in the center
         layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout
        
 
