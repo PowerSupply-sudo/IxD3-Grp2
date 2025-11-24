@@ -23,7 +23,7 @@ public class homePageFE extends Application{
         headline.setFill(Color.web("#31672aff")); // Dark green color
 
         // Here is the subtext "DKK saved"
-        Text subtext = new Text("Days You ");
+        Text subtext = new Text("Days You Æ");
         subtext.setFont(new Font("Elms sans", 24));// Smaller font size for subtext
         subtext.setFill(Color.web("#31672aff")); // Dark green color
 

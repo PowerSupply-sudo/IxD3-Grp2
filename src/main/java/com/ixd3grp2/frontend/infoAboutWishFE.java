@@ -36,12 +36,6 @@ public class infoAboutWishFE extends Application {
         homeButton.setStyle(buttonStyle); 
         profileButton.setStyle(buttonStyle); 
 
-        /**
-        button = new button();
-        searchButton.setStyle("-fx-border-color: #31672aff;");// Green background
-        homeButton.setStyle("-fx-border-color: #31672aff;"); // Green background
-        profileButton.setStyle("-fx-border-color: #31672aff;"); // Green background */
-
         // Add buttons to the bottombar
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
     
