@@ -10,6 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+
+
+
 public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
 
     // Denne metode bygger hele "Add Wish"-siden og viser den i samme Stage
@@ -45,6 +48,10 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
         // Buttons for adding to wishlist and creating new wishlist
         Button addToWishlist = new Button("Add to wishlist");// Opretter en knap til at tilføje ønsket til en ønskeliste
         Button newWishlist = new Button("New wishlist");// Opretter en knap til at oprette en ny ønskeliste
+
+        // Når man klikker på "New wishlist", åbnes popup-boksen i et nyt vindue
+        newWishlist.setOnAction(e -> createWishListFE.showCreateWishListScene(stage));
+
 
         HBox wishListButtons = new HBox(10);// Opretter en horisontal boks til ønskelisteknapperne med 10px mellemrum
         wishListButtons.setAlignment(Pos.CENTER);// Centrerer ønskelisteknapperne i
