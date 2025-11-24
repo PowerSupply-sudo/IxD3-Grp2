@@ -3,9 +3,9 @@ package com.ixd3grp2.frontend;
 import com.ixd3grp2.frontend.userManagement.loginPageFE;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+//import javafx.scene.layout.StackPane;
+//import javafx.scene.paint.Color;
+//import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.File;
