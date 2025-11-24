@@ -4,7 +4,6 @@ import com.ixd3grp2.frontend.userManagement.loginPageFE;
 import javafx.application.Application;
 import javafx.scene.Scene;
 <<<<<<< HEAD
-<<<<<<< HEAD
 //import javafx.scene.layout.StackPane;
 //import javafx.scene.paint.Color;
 //import javafx.scene.shape.Rectangle;
@@ -12,12 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
->>>>>>> 10b8adf (added registerPageFE, made sure loginPageFE's sign in button routes you to homePageFE, sign up button reroutes you to registerPageFE, visually overhauled both pages to match high fidelity figma design. welcomeFE has been changed.)
-=======
-//import javafx.scene.layout.StackPane;
-//import javafx.scene.paint.Color;
-//import javafx.scene.shape.Rectangle;
->>>>>>> de9b928 (har merge'et pom.xml to fix conflikts)
+>>>>>>> 1e4788a (har merge'et pom.xml to fix conflikts)
 import javafx.stage.Stage;
 import java.io.File;
 
