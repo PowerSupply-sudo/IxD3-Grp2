@@ -10,7 +10,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-
+// NOTE: Det kan være at extendere Application ikke er nødvendigt her, 
+// afhængigt af hvordan denne klasse bruges i resten af applikationen. 
+// Gælder også ift. @Override, så det kan fjernes hvis ikke nødvendigt.
+// Det samme gælder også for public void start(Stage stage) metoden,
+// det kan være at der skal bruges public static void showAddWishScene(Stage stage) i stedet.
 
 
 public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
