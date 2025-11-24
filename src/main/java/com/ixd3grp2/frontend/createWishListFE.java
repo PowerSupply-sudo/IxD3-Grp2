@@ -47,14 +47,14 @@ public class createWishListFE {
         );
         popupBox.setMaxWidth(300);
 
-        StackPane inputStack = new StackPane();
+        StackPane inputStack = new StackPane(); // StackPane til at overlappe tekstfelt og knap
 
-        TextField wishlistName = new TextField();
-        wishlistName.setPromptText("Enter wishlist name here...");
+        TextField wishlistName = new TextField(); // Tekstfelt til ønskelistenavn
+        wishlistName.setPromptText("Enter wishlist name here..."); // Prompt-tekst for at guide brugeren
         wishlistName.setMaxWidth(200); // begræns bredden for bedre centrering
 
-        Button closeButton = new Button("X");
-        closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: #6b4c2f;");
+        Button closeButton = new Button("X"); // Luk-knap
+        closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: #6b4c2f;"); // Stil for at gøre den mere synlig
 
         // HBox til at placere knappen i højre hjørne
         HBox closeWrapper = new HBox();
@@ -71,6 +71,10 @@ public class createWishListFE {
             "-fx-padding: 8px 20px;" +
             "-fx-background-radius: 5px;"
         );
+
+       // Skift til ønskeliste-scroll-siden når knappen trykkes
+        createButton.setOnAction(e -> wishListScrollFE.showWishListScrollScene(stage));
+
 
         popupBox.getChildren().addAll(inputStack, createButton);
 
