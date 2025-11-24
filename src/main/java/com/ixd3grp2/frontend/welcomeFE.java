@@ -3,11 +3,7 @@ package com.ixd3grp2.frontend;
 import com.ixd3grp2.frontend.userManagement.loginPageFE;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
 import java.io.File;
 
 public class welcomeFE extends Application {
@@ -18,28 +14,28 @@ public class welcomeFE extends Application {
 
     @Override
     public void start(Stage stage) {
-        // 1. Configure the Stage (Window)
-        stage.setTitle("Avarice");
-        stage.setMinWidth(WIDTH);
-        stage.setMinHeight(HEIGHT);
-        stage.setMaxWidth(WIDTH);
-        stage.setMaxHeight(HEIGHT);
-        stage.setResizable(false);
-
-        // 2. Check Login Status
+        
+        // 1. Check Login Status first
         if (isUserLoggedIn()) {
             // If logged in, go to Home
-            new homePageFE().start(stage);
+            // Note: Ensure homePageFE has the method .show(stage) or .start(stage) depending on your file
+            new homePageFE().start(stage); 
         } else {
-            // Not logged in: Show Login Page
-            // We ask loginPageFE to give us its scene
+            // 2. Not logged in: Load Login Page
             loginPageFE login = new loginPageFE();
             Scene loginScene = login.getScene(stage);
             
+            // 3. Set the scene onto the stage
             stage.setScene(loginScene);
+            
+            // 4. Show the stage
+            stage.show();
+            
+            // 5. NOW we can size to scene (because the scene is set)
+            // This removes the extra whitespace at the bottom
+            stage.sizeToScene();
+            stage.setResizable(false);
         }
-        
-        stage.show();
     }
 
     private boolean isUserLoggedIn() {
