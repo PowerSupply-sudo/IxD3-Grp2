@@ -19,7 +19,7 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
         HBox bottombar = new HBox();// Opretter en horisontal boks til bottombaren
         bottombar.setSpacing(40);// Sætter mellemrum mellem elementerne i bottombaren
         bottombar.setStyle("-fx-background-color: #b1d06aff; -fx-padding: 10px; -fx-min-height: 60px;");// Sætter baggrundsfarve, polstring og minimumshøjde for bottombaren
-        bottombar.setAlignment(Pos.CENTER);// Centrerer elementerne i bottombaren
+        bottombar.setAlignment(Pos.CENTER);// Centrerer elementerne i bottombaren'
 
         //Knapper i bottombar
         Button searchButton = new Button("Search");// Opretter en søgeknap
