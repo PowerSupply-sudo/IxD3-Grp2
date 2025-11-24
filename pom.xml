@@ -60,10 +60,14 @@
                 <version>0.0.8</version>
                 <configuration>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <mainClass>com.ixd3grp2.main</mainClass> 
 =======
                     <mainClass>com.ixd3grp2.frontend.createWishListFE</mainClass> 
 >>>>>>> 8473276 (Tilføjet 2 nye filer)
+=======
+                    <mainClass>com.ixd3grp2.main</mainClass> 
+>>>>>>> 10b8adf (added registerPageFE, made sure loginPageFE's sign in button routes you to homePageFE, sign up button reroutes you to registerPageFE, visually overhauled both pages to match high fidelity figma design. welcomeFE has been changed.)
                 </configuration>
             </plugin>
         </plugins>

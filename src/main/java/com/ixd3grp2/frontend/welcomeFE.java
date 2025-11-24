@@ -3,9 +3,15 @@ package com.ixd3grp2.frontend;
 import com.ixd3grp2.frontend.userManagement.loginPageFE;
 import javafx.application.Application;
 import javafx.scene.Scene;
+<<<<<<< HEAD
 //import javafx.scene.layout.StackPane;
 //import javafx.scene.paint.Color;
 //import javafx.scene.shape.Rectangle;
+=======
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+>>>>>>> 10b8adf (added registerPageFE, made sure loginPageFE's sign in button routes you to homePageFE, sign up button reroutes you to registerPageFE, visually overhauled both pages to match high fidelity figma design. welcomeFE has been changed.)
 import javafx.stage.Stage;
 import java.io.File;
 
@@ -17,6 +23,7 @@ public class welcomeFE extends Application {
 
     @Override
     public void start(Stage stage) {
+<<<<<<< HEAD
         
         // 1. Check Login Status first
         if (isUserLoggedIn()) {
@@ -39,6 +46,30 @@ public class welcomeFE extends Application {
             stage.sizeToScene();
             stage.setResizable(false);
         }
+=======
+        // 1. Configure the Stage (Window)
+        stage.setTitle("Avarice");
+        stage.setMinWidth(WIDTH);
+        stage.setMinHeight(HEIGHT);
+        stage.setMaxWidth(WIDTH);
+        stage.setMaxHeight(HEIGHT);
+        stage.setResizable(false);
+
+        // 2. Check Login Status
+        if (isUserLoggedIn()) {
+            // If logged in, go to Home
+            new homePageFE().start(stage);
+        } else {
+            // Not logged in: Show Login Page
+            // We ask loginPageFE to give us its scene
+            loginPageFE login = new loginPageFE();
+            Scene loginScene = login.getScene(stage);
+            
+            stage.setScene(loginScene);
+        }
+        
+        stage.show();
+>>>>>>> 10b8adf (added registerPageFE, made sure loginPageFE's sign in button routes you to homePageFE, sign up button reroutes you to registerPageFE, visually overhauled both pages to match high fidelity figma design. welcomeFE has been changed.)
     }
 
     private boolean isUserLoggedIn() {
