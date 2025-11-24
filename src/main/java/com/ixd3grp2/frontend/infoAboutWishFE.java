@@ -49,6 +49,7 @@ public class infoAboutWishFE extends Application {
         profileButton.setStyle(buttonStyle); 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         /**
         button = new button();
@@ -57,6 +58,8 @@ public class infoAboutWishFE extends Application {
         profileButton.setStyle("-fx-border-color: #31672aff;"); // Green background */
 
 >>>>>>> 677c623 (Tilføjet 2 nye filer)
+=======
+>>>>>>> 228d03e (new frontend files with general mockup)
         // Add buttons to the bottombar
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
     
