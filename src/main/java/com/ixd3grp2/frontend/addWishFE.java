@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+
+
 // NOTE: Det kan være at extendere Application ikke er nødvendigt her, 
 // afhængigt af hvordan denne klasse bruges i resten af applikationen. 
 // Gælder også ift. @Override, så det kan fjernes hvis ikke nødvendigt.
@@ -52,6 +54,9 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
         // Buttons for adding to wishlist and creating new wishlist
         Button addToWishlist = new Button("Add to wishlist");// Opretter en knap til at tilføje ønsket til en ønskeliste
         Button newWishlist = new Button("New wishlist");// Opretter en knap til at oprette en ny ønskeliste
+
+        // Navigationshandlinger for knapperne
+        addToWishlist.setOnAction(e -> wishListScrollFE.showWishListScrollScene(stage));
 
         // Når man klikker på "New wishlist", åbnes popup-boksen i et nyt vindue
         newWishlist.setOnAction(e -> createWishListFE.showCreateWishListScene(stage));
