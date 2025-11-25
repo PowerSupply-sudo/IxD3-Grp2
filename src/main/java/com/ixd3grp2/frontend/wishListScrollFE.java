@@ -10,7 +10,11 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-// lav vidre på scrollable wish list her, ved at tilføje lukkeknapper, så man kan slette ønskelister osv.
+// Lav vidre på scrollable wish list her, ved at tilføje lukkeknapper, så man kan slette ønskelister osv.
+// Opdatering af wish list scroll scene: Indtil videre er der tilføjet en luk-knap (X) i øverste højre hjørne af boksen, 
+// som navigerer tilbage til addWishFE scenen, når den klikkes.
+// Nu er der tilføjet flere funktioner f.eks som at man kan slet-knapper for hver ønskeliste,
+// men når man lukker scenen ned, så gemmes ændringerne ikke.
 
 // NOTE: Det kan være at extendere Application ikke er nødvendigt her, 
 // afhængigt af hvordan denne klasse bruges i resten af applikationen. 
@@ -18,9 +22,9 @@ import javafx.stage.Stage;
 // Det samme gælder også for public void start(Stage stage) metoden,
 // det kan være at der skal bruges public static void showWishListScrollScene(Stage stage) i stedet.
 
-public class wishListScrollFE extends Application {
+public class wishListScrollFE extends Application {// Klasse til at oprette "Wish List Scroll"-siden i frontend
     @Override
-     public void start(Stage stage) {
+     public void start(Stage stage) {// Metode til at vise "Wish List Scroll"-scenen i den givne stage
     // ---------------- Bottombar ----------------
 
         //Create the bottombar
@@ -55,14 +59,14 @@ public class wishListScrollFE extends Application {
     // ---------------- Scrollbart ønskeliste-indhold ----------------
         // (Indholdet til den scrollbare ønskeliste skal implementeres her)
 
-        VBox wishlistContainer = new VBox(15);
-        wishlistContainer.setAlignment(Pos.TOP_CENTER);
-        wishlistContainer.setStyle("-fx-padding: 20px;");
+        VBox wishlistContainer = new VBox(15);// Container for wishlist items with spacing
+        wishlistContainer.setAlignment(Pos.TOP_CENTER);// Align items to the top center
+        wishlistContainer.setStyle("-fx-padding: 20px;");// Padding around the wishlist items
 
-        for (int i = 0; i < 10; i++) {
-            HBox item = new HBox(10);
-            item.setAlignment(Pos.CENTER_LEFT);
-            item.setStyle(
+        for (int i = 0; i < 10; i++) {// Example: Adding 10 wishlist items
+            HBox item = new HBox(10);// Each wishlist item container
+            item.setAlignment(Pos.CENTER_LEFT);// Align items to the left
+            item.setStyle(// Styling for each wishlist item
                 "-fx-background-color: #ffffff;" +
                 "-fx-padding: 10px;" +
                 "-fx-border-color: #6b4c2f;" +
@@ -70,50 +74,63 @@ public class wishListScrollFE extends Application {
                 "-fx-border-radius: 8px;" +
                 "-fx-background-radius: 8px;"
             );
-            item.setMaxWidth(280);
+            item.setMaxWidth(280);// Set a max width for each wishlist item
 
-            javafx.scene.control.Label name = new javafx.scene.control.Label("Wishlist name goes here...");
-            name.setStyle("-fx-font-size: 14px; -fx-text-fill: #333;");
+            javafx.scene.control.Label name = new javafx.scene.control.Label("Wishlist name goes here...");// Wishlist name label
+            name.setStyle("-fx-font-size: 14px; -fx-text-fill: #333;");// Wishlist name label style
 
-            javafx.scene.control.Label count = new javafx.scene.control.Label("4 🎁");
-            count.setStyle("-fx-font-size: 14px; -fx-text-fill: #31672a;");
+            javafx.scene.control.Label count = new javafx.scene.control.Label("4 🎁"); // Gift emoji with count
+            count.setStyle("-fx-font-size: 14px; -fx-text-fill: #31672a;");// Gift emoji with count
 
-            Button delete = new Button("X");
-            delete.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            Button delete = new Button("X");// Delete button
+            delete.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");// Delete button style
 
-            Region spacer = new Region();
-            HBox.setHgrow(spacer, Priority.ALWAYS);
+            delete.setOnAction(e -> wishlistContainer.getChildren().remove(item));// Delete functionality
 
-            item.getChildren().addAll(name, spacer, count, delete);
-            wishlistContainer.getChildren().add(item);
+            Region spacer = new Region();// Spacer to push count and delete button to the right
+            HBox.setHgrow(spacer, Priority.ALWAYS);// Make spacer grow to take available space
+
+            item.getChildren().addAll(name, spacer, count, delete);// Add elements to the item HBox
+            wishlistContainer.getChildren().add(item);// Add item to the wishlist container
+
         }
 
-        ScrollPane scrollPane = new ScrollPane(wishlistContainer);
-        scrollPane.setFitToWidth(true);
-        scrollPane.setStyle("-fx-background: transparent;");
-            
+        ScrollPane scrollPane = new ScrollPane(wishlistContainer);// ScrollPane to make the wishlist scrollable
+        scrollPane.setFitToWidth(true);// Make the content fit the width of the ScrollPane
+        scrollPane.setStyle("-fx-background: transparent;");// Transparent background for ScrollPane
+
+        // Close-knappen(X) i øverste højre hjørne af boksen
+        Button closeButton = new Button("X");// Opretter en luk-knap
+        closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: BLACK;");// Gør luk-knappen mere synlig med fed skrift og sort farve
+        closeButton.setOnAction(e -> addWishFE.showAddWishScene(stage));// Når luk-knappen klikkes, navigeres tilbage til addWishFE
+        
+        HBox closeWrapper = new HBox();// Opretter en horisontal boks til at placere luk-knappen
+        closeWrapper.setAlignment(Pos.TOP_RIGHT);// Justerer luk-knappen til højre i bok
+        closeWrapper.setMaxWidth(Double.MAX_VALUE);// Gør boksen så bred som muligt for at sikre at knappen er i højre hjørne
+        closeWrapper.getChildren().add(closeButton);// Tilføjer luk-knappen til boksen
+
     // ---------------- Bekræft-knap ----------------
         // (Bekræft-knappen skal implementeres her)
 
-        Button confirmButton = new Button("Confirm");
-        confirmButton.setStyle(
+        Button confirmButton = new Button("Confirm");// Opretter en bekræft-knap
+        confirmButton.setStyle(// Stil for bekræft-knappen
             "-fx-background-color: #6b4c2f;" +
             "-fx-text-fill: white;" +
             "-fx-font-size: 16px;" +
             "-fx-font-weight: bold;" +
             "-fx-padding: 10px 30px;" +
             "-fx-background-radius: 8px;"
-        );
+        );// Sætter stil for bekræft-knappen
 
     // ---------------- Layout ----------------
         //(layout er allerede oprettet som en BorderPane ovenfor)
 
-        VBox centerWrapper = new VBox(20);
-        centerWrapper.setAlignment(Pos.CENTER);
-        centerWrapper.setStyle("-fx-padding: 20px;");
-        centerWrapper.getChildren().addAll(scrollPane, confirmButton);
+        VBox centerWrapper = new VBox(20);// Wrapper for centering content with spacing
+        centerWrapper.setAlignment(Pos.CENTER);// Center content horizontally and vertically
+        centerWrapper.setStyle("-fx-padding: 20px;");// Padding around the content
+        centerWrapper.getChildren().addAll(closeWrapper, scrollPane, confirmButton);// Add close button, scrollable wishlist and confirm button to the wrapper
 
-        layout.setCenter(centerWrapper);
+        layout.setCenter(centerWrapper);// Set the center of the layout to the wrapper
 
         // ---------------- Scene ----------------
 
@@ -121,16 +138,16 @@ public class wishListScrollFE extends Application {
         Scene scene = new Scene(layout, 1197/3, 2256/3, Color.WHITE);
 
         // We set the scene on the stage and display it
-        stage.setTitle("Stage Title");
-        stage.setScene(scene);
-        stage.show();
+        stage.setTitle("Stage Title");// Set the title of the stage
+        stage.setScene(scene);// Set the scene on the stage
+        stage.show();// Show the stage
 
          // Navigation (eksempel)
         homeButton.setOnAction(e -> new homePageFE().start(stage));
     }
     // Valgfrit: gør det nemt at skifte til denne scene fra andre klasser
-    public static void showWishListScrollScene(Stage stage) {
-        new wishListScrollFE().start(stage);
+    public static void showWishListScrollScene(Stage stage) {// Statisk metode til at vise "Wish List Scroll"-scenen i den givne stage
+        new wishListScrollFE().start(stage);// Opretter en ny instans af wishListScrollFE og kalder start-metoden med den givne stage
     }    
 
 }
