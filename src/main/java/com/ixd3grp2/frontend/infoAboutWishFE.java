@@ -14,9 +14,6 @@ public class infoAboutWishFE extends Application {
      public void start(Stage stage) {
         // Implementation for infoAboutWishFE goes here
 
-
-
-
       //Create the bottombar
         HBox bottombar = new HBox();
         bottombar.setSpacing(40);// Space between buttons
