@@ -84,8 +84,20 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
 
         wishBox.setMaxWidth(310);// Sætter maksimal bredde for boksen for at forhindre at den bliver for bred
 
-        // Tilføj alle elementer til boksen
-        wishBox.getChildren().addAll(wishTitle, wishListButtons, continueButton);// Tilføjer tekstfeltet, ønskelisteknapperne og fortsætknappen til boksen
+        // Exit-knappen(X) i øverste højre hjørne af boksen
+        Button closeButton = new Button("X");// Opretter en luk-knap
+        closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: BLACK;");// Gør luk-knappen mere synlig med fed skrift og sort farve
+        closeButton.setOnAction(e -> new homePageFE().start(stage));// Når luk-knappen klikkes, navigeres tilbage til homePageFE
+
+        HBox closeWrapper = new HBox();// Opretter en horisontal boks til at placere luk-knappen
+        closeWrapper.setAlignment(Pos.TOP_RIGHT);// Justerer luk-knappen til højre i bok
+        closeWrapper.setMaxWidth(Double.MAX_VALUE);// Gør boksen så bred som muligt for at sikre at knappen er i højre hjørne
+        closeWrapper.getChildren().add(closeButton);// Tilføjer luk-knappen til boksen
+
+        // Tilføj alle elementer til boksen - med X-knap øverst til højre,  
+        // som den første ting i boksen, da den er i en separat HBox,   
+        // og dermed placeres øverst.
+        wishBox.getChildren().addAll(closeWrapper, wishTitle, wishListButtons, continueButton);// Tilføjer luk-knappen, tekstfeltet, ønskelisteknapperne og fortsætknappen til boksen
 
         // ---------------- Layout ----------------
         // layout with center content and bottombar at the bottom
