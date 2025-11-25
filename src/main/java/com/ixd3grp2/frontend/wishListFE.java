@@ -9,6 +9,15 @@ import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+//HVAD SKAL DENNE KLASSE BRUGE TIL?: Denne klasse skal bruges til at oprette "Wish Lists"-siden i frontend.
+//Den skal vise en oversigt over brugerens ønskelister,
+//og give mulighed for at navigere til detaljerede visninger af hver ønskeliste.
+
+// NOTE: Det kan være at extendere Application ikke er nødvendigt her, 
+// afhængigt af hvordan denne klasse bruges i resten af applikationen.
+// Gælder også ift. @Override, så det kan fjernes hvis ikke nødvendigt.
+// Det samme gælder også for public void start(Stage stage) metoden,
+
 public class wishListFE extends Application {
     @Override
     public void start(Stage stage) {
