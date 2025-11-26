@@ -108,33 +108,6 @@ public class homePageFE extends Application{
         stage.show();
     }
     
-    
-    /**VBox content = new VBox(12);
-    content.setPadding(new Insets(12));
-    content.setAlignment(Pos.CENTER);
-
-    TextField wishTitle = new TextField();
-    wishTitle.setPromptText("Enter Wish title");
-
-    HBox buttonRow = new HBox(10);
-    buttonRow.setAlignment(Pos.CENTER);
-    Button addToWishlist = new Button("Add to wishlist");
-    Button newWishlist = new Button("New wishlist");
-    buttonRow.getChildren().addAll(addToWishlist, newWishlist);
-
-    Button continueButton = new Button("Continue");
-    continueButton.setOnAction(ev -> {
-       dialog.close();
-    });
-    continueButton.setStyle("-fx-padding: 8px 36px;");
-
-    content.getChildren().addAll(wishTitle, buttonRow, continueButton);
-
-    dialog.getDialogPane().setContent(content);
-    dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
-    dialog.showAndWait();
-    */
-    
     public static void main(String[] args) {
         /* Launch the Application class in which is in */
         launch(args);
