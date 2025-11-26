@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+
+
 public class createWishListFE {
 
     public static void showCreateWishListScene(Stage stage) {

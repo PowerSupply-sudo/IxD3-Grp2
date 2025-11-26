@@ -1,6 +1,8 @@
 package com.ixd3grp2.frontend;
 
+
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -11,6 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import com.ixd3grp2.frontend.wishLists.wishListsFE;
 
 
 public class homePageFE extends Application{
@@ -71,12 +74,37 @@ public class homePageFE extends Application{
         Button searchButton = new Button("Search");
         Button homeButton = new Button("Home");
         Button profileButton = new Button("Profile");
+    
 
-        // Add buttons to the bottom bar, and the bottons placed in the correct order, and the size of the buttons
-        String buttonStyle = "-fx-border-color: #31672aff; -fx-text-fill: #31672aff; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-background-radius: 5px; -fx-border-radius: 5px;";
+        String buttonStyle = "-fx-border-color: #31672aff; -fx-text-fill: #31672aff; "
+                        + "-fx-font-size: 16px; -fx-padding: 10px 20px; "
+                        + "-fx-background-radius: 5px; -fx-border-radius: 5px;";
         searchButton.setStyle(buttonStyle);
-        homeButton.setStyle(buttonStyle); 
-        profileButton.setStyle(buttonStyle); 
+        homeButton.setStyle(buttonStyle);
+        profileButton.setStyle(buttonStyle);
+        
+
+        //---------------------------- Wish Lists Button ----------------
+       // Wish Lists-knap
+        Button wishListsButton = new Button("Wish Lists");
+        wishListsButton.setStyle("-fx-background-color: #b1d06aff; -fx-text-fill: #31672aff; "
+            + "-fx-border-color: #31672aff; -fx-font-size: 16px; -fx-padding: 10px 20px; "
+            + "-fx-border-radius: 5px; -fx-background-radius: 5px;");
+        wishListsButton.setOnAction(e -> wishListsFE.showWishListsScene(stage));
+
+        // VBox til knappen (placeret lige over bottom bar)
+        VBox wishListsBox = new VBox();
+        wishListsBox.setAlignment(Pos.CENTER);
+        wishListsBox.setPadding(new Insets(0, 0, 40, 0)); // 40px afstand til bottom bar
+        wishListsBox.getChildren().add(wishListsButton);
+
+        // Layout
+        BorderPane layout = new BorderPane();
+        layout.setCenter(centerContent);   // dit hovedindhold
+        layout.setBottom(new VBox(wishListsBox, bottombar)); // knap + bottom bar
+
+
+
 
         /**
         button = new button();
@@ -88,9 +116,9 @@ public class homePageFE extends Application{
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
     
         // Use a BorderPane to position the bottombar at the bottom
-        BorderPane layout = new BorderPane();
-        layout.setCenter(centerContent);//// Main content in the center
-        layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout
+        /**BorderPane layout = new BorderPane();
+        layout.setCenter(mainContent);//// Main content in the center
+        layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout*/
        
 
         // We instantiate a new Scene of size 300x250, with white background and and associated scene graph rooted in 'layout'
