@@ -3,9 +3,13 @@ package com.ixd3grp2.frontend;
 
 import javafx.application.Application;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import javafx.geometry.Insets;
 =======
 >>>>>>> 677c623 (Tilføjet 2 nye filer)
+=======
+import javafx.geometry.Insets;
+>>>>>>> 02d6f76 (tilføjet Wish lists, og Wish list full view(wishListDetailFE))
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
