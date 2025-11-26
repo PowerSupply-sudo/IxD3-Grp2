@@ -115,7 +115,8 @@ public class homePageFE extends Application{
         
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
     
-        // Use a BorderPane to position the bottombar at the bottom
+    // Use the existing BorderPane to position the bottombar at the bottom
+    // (do not redeclare `layout` here — it was declared above)
        
 
         // We instantiate a new Scene of size 300x250, with white background and and associated scene graph rooted in 'layout'
