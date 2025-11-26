@@ -129,6 +129,10 @@ public class homePageFE extends Application{
 =======
         // Use a BorderPane to position the bottombar at the bottom
 >>>>>>> d704d63 (Updated homepage)
+=======
+    // Use the existing BorderPane to position the bottombar at the bottom
+    // (do not redeclare `layout` here — it was declared above)
+>>>>>>> 55be752 (Fixed broken shit)
        
 
         // We instantiate a new Scene of size 300x250, with white background and and associated scene graph rooted in 'layout'
