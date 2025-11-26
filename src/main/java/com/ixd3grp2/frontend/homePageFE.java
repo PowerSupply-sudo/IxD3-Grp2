@@ -3,9 +3,13 @@ package com.ixd3grp2.frontend;
 
 import javafx.application.Application;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import javafx.geometry.Insets;
 =======
 >>>>>>> 8473276 (Tilføjet 2 nye filer)
+=======
+import javafx.geometry.Insets;
+>>>>>>> a2ec60a (tilføjet Wish lists, og Wish list full view(wishListDetailFE))
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -118,8 +122,15 @@ public class homePageFE extends Application{
         
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
     
+<<<<<<< HEAD
     // Use the existing BorderPane to position the bottombar at the bottom
     // (do not redeclare `layout` here — it was declared above)
+=======
+        // Use a BorderPane to position the bottombar at the bottom
+        /**BorderPane layout = new BorderPane();
+        layout.setCenter(mainContent);//// Main content in the center
+        layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout*/
+>>>>>>> a2ec60a (tilføjet Wish lists, og Wish list full view(wishListDetailFE))
        
 
         // We instantiate a new Scene of size 300x250, with white background and and associated scene graph rooted in 'layout'

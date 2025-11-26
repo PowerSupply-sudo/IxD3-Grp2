@@ -10,14 +10,20 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a2ec60a (tilføjet Wish lists, og Wish list full view(wishListDetailFE))
 // NOTE: Det kan være at extendere Application ikke er nødvendigt her, 
 // afhængigt af hvordan denne klasse bruges i resten af applikationen.
 // Gælder også ift. @Override, så det kan fjernes hvis ikke nødvendigt.
 // Det samme gælder også for public void start(Stage stage) metoden,
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> 8473276 (Tilføjet 2 nye filer)
+=======
+>>>>>>> a2ec60a (tilføjet Wish lists, og Wish list full view(wishListDetailFE))
 public class infoAboutWishFE extends Application {
     @Override
      public void start(Stage stage) {
