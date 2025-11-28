@@ -14,7 +14,7 @@ public class main {
                 case "backend-init":
                     // Run database initialization
                     try {
-                        com.ixd3grp2.db.initializeDatabase();
+                        com.ixd3grp2.DatabaseInitializer.initializeDatabase();
                     } catch (Exception e) {
                         System.err.println("Failed to initialize database:");
                         e.printStackTrace();
