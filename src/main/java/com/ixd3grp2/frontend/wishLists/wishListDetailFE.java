@@ -60,6 +60,7 @@ import javafx.stage.Stage;*/
 
 package com.ixd3grp2.frontend.wishLists;
 
+import com.ixd3grp2.frontend.homePageFE;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -67,7 +68,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class wishListDetailFE {
@@ -78,29 +79,39 @@ public class wishListDetailFE {
         centerContent.setSpacing(20);
 
         Label title = new Label("Wish List #" + (listIndex + 1));
+        title.setStyle("-fx-font-family: 'Elms sans'; -fx-font-size: 16px; -fx-text-fill: #31672aff;");
+
         Button backButton = new Button("← Back");
         backButton.setOnAction(e -> wishListsFE.showWishListsScene(stage));
+        backButton.setFont(Font.font("Elms sans", 20)); // Størrelse 20
+        backButton.setStyle("-fx-text-fill: #31672aff; -fx-background-color:  #DDE5B6; -fx-border-color: #31672aff; -fx-padding: 8px 20px; "
+                            + "-fx-background-radius: 5px; -fx-border-radius: 5px;");
 
         centerContent.getChildren().addAll(title, backButton);
 
         // ---------------- Bottombar ----------------
+       //Create the bottombar
         HBox bottombar = new HBox();
-        bottombar.setSpacing(40); // Space between buttons
-        bottombar.setStyle("-fx-background-color: #b1d06aff; -fx-padding: 10px; -fx-min-height: 60px;");
-        bottombar.setAlignment(Pos.CENTER); // Center buttons horizontally and vertically
+        bottombar.setSpacing(40);// Space between buttons
+        bottombar.setStyle("-fx-background-color: #6c584c; -fx-padding: 10px; -fx-min-height: 60px;"); // Ligth greenbackground med fixed height
+        //bottombar.setLayoutY(2256/3 - 50); // Position at the bottom of the scene
+        bottombar.setAlignment(Pos.CENTER);// Center buttons horizontally and vertically
+
 
         // Create buttons for the bottom bar
         Button searchButton = new Button("Search");
         Button homeButton = new Button("Home");
         Button profileButton = new Button("Profile");
 
-        // Styling for buttons
-        String buttonStyle = "-fx-border-color: #31672aff; -fx-text-fill: #31672aff; "
-                           + "-fx-font-size: 16px; -fx-padding: 10px 20px; "
-                           + "-fx-background-radius: 5px; -fx-border-radius: 5px;";
+        // Add buttons to the bottom bar, and the bottons placed in the correct order, and the size of the buttons
+        String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #31672aff; -fx-text-fill: #BLACK; "
+                        + "-fx-font-size: 16px;-fx-font-family: 'Elms sans';" 
+                        + "-fx-padding: 10px 20px; "
+                        + "-fx-background-radius: 5px; -fx-border-radius: 5px;";
         searchButton.setStyle(buttonStyle);
         homeButton.setStyle(buttonStyle);
         profileButton.setStyle(buttonStyle);
+
 
         // Add buttons to the bottombar
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
@@ -111,13 +122,16 @@ public class wishListDetailFE {
         layout.setBottom(bottombar);     // Bottom bar at the bottom
 
         // ---------------- Scene ----------------
-        Scene scene = new Scene(layout, 1197/3, 2256/3, Color.WHITE);
+        // We instantiate a new Scene of size 300x250, with white background and and associated scene graph rooted in 'layout'
+        layout.setStyle("-fx-background-color: #F0EAD2; -fx-font-family: 'Elms sans';");// Light beige background
+        Scene scene = new Scene(layout, 1197/3, 2256/3);//1197/3 width and 2256/3 height of an iPhone 16
+
         stage.setTitle("Wish List Detail");
         stage.setScene(scene);
         stage.show();
 
         // ---------------- Navigation ----------------
-        //homeButton.setOnAction(e -> new homePageFE().start(stage));
+        homeButton.setOnAction(e -> new homePageFE().start(stage));
         // searchButton.setOnAction(e -> new searchFE().start(stage)); // hvis du laver en search-side
         // profileButton.setOnAction(e -> new profileFE().start(stage)); // hvis du laver en profile-side
     }

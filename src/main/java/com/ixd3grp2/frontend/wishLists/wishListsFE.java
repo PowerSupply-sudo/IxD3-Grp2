@@ -8,7 +8,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class wishListsFE extends Application {
@@ -16,20 +15,28 @@ public class wishListsFE extends Application {
     @Override
     public void start(Stage stage) {
         // ---------------- Bottombar ----------------
-        HBox bottombar = new HBox(40);
-        bottombar.setStyle("-fx-background-color: #b1d06aff; -fx-padding: 10px; -fx-min-height: 60px;");
-        bottombar.setAlignment(Pos.CENTER);
+        //Create the bottombar
+        HBox bottombar = new HBox();
+        bottombar.setSpacing(40);// Space between buttons
+        bottombar.setStyle("-fx-background-color: #6c584c; -fx-padding: 10px; -fx-min-height: 60px;"); // Ligth greenbackground med fixed height
+        //bottombar.setLayoutY(2256/3 - 50); // Position at the bottom of the scene
+        bottombar.setAlignment(Pos.CENTER);// Center buttons horizontally and vertically
 
+
+        // Create buttons for the bottom bar
         Button searchButton = new Button("Search");
         Button homeButton = new Button("Home");
         Button profileButton = new Button("Profile");
 
-        String buttonStyle = "-fx-border-color: #31672aff; -fx-text-fill: #31672aff;"
-                           + " -fx-font-size: 16px; -fx-padding: 10px 20px;"
-                           + " -fx-background-radius: 5px; -fx-border-radius: 5px;";
+        // Add buttons to the bottom bar, and the bottons placed in the correct order, and the size of the buttons
+        String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #31672aff; -fx-text-fill: #BLACK; "
+                        + "-fx-font-size: 16px;-fx-font-family: 'Elms sans';" 
+                        + "-fx-padding: 10px 20px; "
+                        + "-fx-background-radius: 5px; -fx-border-radius: 5px;";
         searchButton.setStyle(buttonStyle);
         homeButton.setStyle(buttonStyle);
         profileButton.setStyle(buttonStyle);
+
 
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
 
@@ -47,8 +54,8 @@ public class wishListsFE extends Application {
             Button wishListsButton = new Button("Wish List " + (i + 1));// Knap for ønskeliste
             wishListsButton.setPrefSize(100, 80);// Standard størrelse for knap
             wishListsButton.setStyle(// CSS styling for knap
-                "-fx-background-color: #b1d06aff;" +
-                "-fx-border-color: #31672aff;" +
+                "-fx-background-color: #dde5b6;" +
+                "-fx-border-color: #849a47;" +
                 "-fx-border-width: 2px;" +
                 "-fx-font-size: 14px;" +
                 "-fx-font-weight: bold;" +
@@ -68,7 +75,14 @@ public class wishListsFE extends Application {
         layout.setCenter(grid);// Sætter grid i midten af layout
         layout.setBottom(bottombar);// Sætter bottombar i bunden af layout
 
-        Scene scene = new Scene(layout, 1197/3, 2256/3, Color.WHITE);// Opretter scene med hvid baggrund
+        // ---------------- Scene ----------------
+
+        layout.setStyle(
+            "-fx-background-color: #F0EAD2;" +// Light beige background
+            "-fx-font-family: 'Elms sans';" +
+            "-fx-font-size: 16px;"//general font og størrelse
+        );
+        Scene scene = new Scene(layout, 1197/3, 2256/3);//1197/3 width and 2256/3 height of an iPhone 16
         stage.setTitle("Wish Lists");// Sætter vinduets titel
         stage.setScene(scene);// Sætter scenen på scenen
         stage.show();

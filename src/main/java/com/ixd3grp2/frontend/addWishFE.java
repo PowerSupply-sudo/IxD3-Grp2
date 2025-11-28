@@ -7,7 +7,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
@@ -25,23 +24,27 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
     public static void showAddWishScene(Stage stage) {// Metode til at vise "Add Wish"-scenen i den givne stage
 
         // ---------------- Bottombar ----------------
-        HBox bottombar = new HBox();// Opretter en horisontal boks til bottombaren
-        bottombar.setSpacing(40);// Sætter mellemrum mellem elementerne i bottombaren
-        bottombar.setStyle("-fx-background-color: #b1d06aff; -fx-padding: 10px; -fx-min-height: 60px;");// Sætter baggrundsfarve, polstring og minimumshøjde for bottombaren
-        bottombar.setAlignment(Pos.CENTER);// Centrerer elementerne i bottombaren'
+         //Create the bottombar
+        HBox bottombar = new HBox();
+        bottombar.setSpacing(40);// Space between buttons
+        bottombar.setStyle("-fx-background-color: #6c584c; -fx-padding: 10px; -fx-min-height: 60px;"); // Ligth greenbackground med fixed height
+        //bottombar.setLayoutY(2256/3 - 50); // Position at the bottom of the scene
+        bottombar.setAlignment(Pos.CENTER);// Center buttons horizontally and vertically
 
-        //Knapper i bottombar
-        Button searchButton = new Button("Search");// Opretter en søgeknap
-        Button homeButton = new Button("Home");// Opretter en hjemme-knap
-        Button profileButton = new Button("Profile");// Opretter en profil-knap
 
-        // Ensartet styling til knapperne
-        String buttonStyle = "-fx-border-color: #31672aff; -fx-text-fill: #31672aff;" // Color, border, text size, and padding.
-                           + " -fx-font-size: 16px; -fx-padding: 10px 20px;"
-                           + " -fx-background-radius: 5px; -fx-border-radius: 5px;";
-        searchButton.setStyle(buttonStyle);// Anvender den definerede stil til søgeknappen
-        homeButton.setStyle(buttonStyle);// Anvender den definerede stil til hjemme-knappen
-        profileButton.setStyle(buttonStyle);// Anvender den definerede stil til profil-knappen
+        // Create buttons for the bottom bar
+        Button searchButton = new Button("Search");
+        Button homeButton = new Button("Home");
+        Button profileButton = new Button("Profile");
+
+        // Add buttons to the bottom bar, and the bottons placed in the correct order, and the size of the buttons
+        String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #31672aff; -fx-text-fill: #BLACK; "
+                        + "-fx-font-size: 16px;-fx-font-family: 'Elms sans';" 
+                        + "-fx-padding: 10px 20px; "
+                        + "-fx-background-radius: 5px; -fx-border-radius: 5px;";
+        searchButton.setStyle(buttonStyle);
+        homeButton.setStyle(buttonStyle);
+        profileButton.setStyle(buttonStyle);
 
         // Tilføj knapperne til bottombar
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);// Tilføjer knapperne til bottombaren
@@ -53,7 +56,26 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
 
         // Buttons for adding to wishlist and creating new wishlist
         Button addToWishlist = new Button("Add to wishlist");// Opretter en knap til at tilføje ønsket til en ønskeliste
+        addToWishlist.setStyle(
+            "-fx-background-color: #a98467;" +
+            "-fx-text-fill: black;" +
+            "-fx-font-family: 'Elms sans';" +
+            "-fx-border-color: #6c584c;" +
+            "-fx-font-size: 12px;" +
+            "-fx-padding: 8px 20px;" +
+            "-fx-background-radius: 5px;"
+        );// Sætter stil for knappen med baggrundsfarve, tekstfarve, skrifttype, kantfarve, skriftstørrelse, polstring og runding af kanter
+
         Button newWishlist = new Button("New wishlist");// Opretter en knap til at oprette en ny ønskeliste
+        newWishlist.setStyle(
+            "-fx-background-color: #a98467;" +
+            "-fx-text-fill: black;" +
+            "-fx-font-family: 'Elms sans';" +
+            "-fx-border-color: #6c584c;" +
+            "-fx-font-size: 12px;" +
+            "-fx-padding: 8px 20px;" +
+            "-fx-background-radius: 5px;"
+        );// Sætter stil for knappen med baggrundsfarve, tekstfarve, skrifttype, kantfarve, skriftstørrelse, polstring og runding af kanter
 
         // Navigationshandlinger for knapperne
         addToWishlist.setOnAction(e -> wishListScrollFE.showWishListScrollScene(stage));
@@ -65,20 +87,23 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
         HBox wishListButtons = new HBox(10);// Opretter en horisontal boks til ønskelisteknapperne med 10px mellemrum
         wishListButtons.setAlignment(Pos.CENTER);// Centrerer ønskelisteknapperne i
         wishListButtons.getChildren().addAll(addToWishlist, newWishlist);// Tilføjer ønskelisteknapperne til boksen
+        wishListButtons.setStyle(
+            "-fx-font-family: 'Elms sans';" +
+            "-fx-font-size: 14px;"+
+            "-fx-text-fill: black;"
+        );// Sætter stil for ønskelisteknapperne med skrifttype og skriftstørrelse
 
-        // Continue button to proceed (can be used for saving or next steps)
-        Button continueButton = new Button("Continue");// Opretter en fortsætknap
-        continueButton.setStyle("-fx-padding: 10px 40px;");// Tilføjer polstring til fortsætknappen for bedre udseende
-
+        
+    // ---------------- Ønskeboks ----------------
         // Saml alt i én VBox-boks med kant og baggrund
         VBox wishBox = new VBox(15);// Opretter en vertikal boks til at holde alle elementerne med 15px mellemrum
         wishBox.setAlignment(Pos.CENTER);// Centrerer elementerne i boksen
         wishBox.setStyle(
             "-fx-padding: 25px;" +
-            "-fx-border-color: #31672aff;" +
+            "-fx-border-color: black;" +
             "-fx-border-width: 2px;" +
             "-fx-border-radius: 12px;" +
-            "-fx-background-color: #f9fff0;" +
+            "-fx-background-color: #849a46;" +
             "-fx-background-radius: 12px;"
         );// Sætter stil for boksen med polstring, kantfarve, kantbredde, kantens runding, baggrundsfarve og baggrundens runding
 
@@ -97,7 +122,7 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
         // Tilføj alle elementer til boksen - med X-knap øverst til højre,  
         // som den første ting i boksen, da den er i en separat HBox,   
         // og dermed placeres øverst.
-        wishBox.getChildren().addAll(closeWrapper, wishTitle, wishListButtons, continueButton);// Tilføjer luk-knappen, tekstfeltet, ønskelisteknapperne og fortsætknappen til boksen
+        wishBox.getChildren().addAll(closeWrapper, wishTitle, wishListButtons);// Tilføjer luk-knappen, tekstfeltet, ønskelisteknapperne og fortsætknappen til boksen
 
         // ---------------- Layout ----------------
         // layout with center content and bottombar at the bottom
@@ -112,10 +137,10 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
         // Sæt wrapperen som center i layoutet
         layout.setCenter(centerWrapper);
 
-
-        // new Scene with layout
-        Scene scene = new Scene(layout, 1197/3, 2256/3, Color.WHITE);// Opretter en ny scene med den givne bredde og højde, og sætter baggrundsfarven til hvid på iPhone-størrelse
+        layout.setStyle("-fx-background-color: #F0EAD2; -fx-font-family: 'Elms sans';");// Light beige background
+        Scene scene = new Scene(layout, 1197/3, 2256/3);//1197/3 width and 2256/3 height of an iPhone 16
         stage.setScene(scene); // Sætter scenen på den eksisterende stage(stage er selve vinduet der åbner når man kører programmet)
+        stage.setTitle("Add Wish");// Sætter titlen på vinduet(stage)
         stage.show();// Viser scenen på scenen(stage)
 
         // Navigation tilbage til homePageFE
