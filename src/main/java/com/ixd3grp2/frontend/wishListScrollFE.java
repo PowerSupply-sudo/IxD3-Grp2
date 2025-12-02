@@ -4,10 +4,8 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-//import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 // Lav vidre på scrollable wish list her, ved at tilføje lukkeknapper, så man kan slette ønskelister osv.
@@ -25,13 +23,15 @@ import javafx.stage.Stage;
 public class wishListScrollFE extends Application {// Klasse til at oprette "Wish List Scroll"-siden i frontend
     @Override
      public void start(Stage stage) {// Metode til at vise "Wish List Scroll"-scenen i den givne stage
-    // ---------------- Bottombar ----------------
+// ---------------- Bottombar ----------------
 
         //Create the bottombar
         HBox bottombar = new HBox();
         bottombar.setSpacing(40);// Space between buttons
-        bottombar.setStyle("-fx-background-color: #b1d06aff; -fx-padding: 10px; -fx-min-height: 60px;"); // Ligth greenbackground med fixed height
+        bottombar.setStyle("-fx-background-color: #6c584c; -fx-padding: 10px; -fx-min-height: 60px;"); // Ligth greenbackground med fixed height
+        //bottombar.setLayoutY(2256/3 - 50); // Position at the bottom of the scene
         bottombar.setAlignment(Pos.CENTER);// Center buttons horizontally and vertically
+
 
         // Create buttons for the bottom bar
         Button searchButton = new Button("Search");
@@ -39,12 +39,14 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
         Button profileButton = new Button("Profile");
 
         // Add buttons to the bottom bar, and the bottons placed in the correct order, and the size of the buttons
-        String buttonStyle = "-fx-border-color: #31672aff; -fx-text-fill: #31672aff;"
-                           + " -fx-font-size: 16px; -fx-padding: 10px 20px;"
-                           + " -fx-background-radius: 5px; -fx-border-radius: 5px;";
+        String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #849a47; -fx-text-fill: #BLACK; "
+                        + "-fx-font-size: 16px;-fx-font-family: 'Elms sans';" 
+                        + "-fx-padding: 10px 20px; "
+                        + "-fx-background-radius: 5px; -fx-border-radius: 5px;";
         searchButton.setStyle(buttonStyle);
-        homeButton.setStyle(buttonStyle); 
-        profileButton.setStyle(buttonStyle); 
+        homeButton.setStyle(buttonStyle);
+        profileButton.setStyle(buttonStyle);
+
 
         // Add buttons to the bottombar
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
@@ -56,7 +58,7 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
         //layout.setCenter(centerContent);//// Main content in the center
         layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout
        
-    // ---------------- Scrollbart ønskeliste-indhold ----------------
+// ---------------- Scrollbart ønskeliste-indhold ----------------
         // (Indholdet til den scrollbare ønskeliste skal implementeres her)
 
         VBox wishlistContainer = new VBox(15);// Container for wishlist items with spacing
@@ -67,9 +69,9 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
             HBox item = new HBox(10);// Each wishlist item container
             item.setAlignment(Pos.CENTER_LEFT);// Align items to the left
             item.setStyle(// Styling for each wishlist item
-                "-fx-background-color: #ffffff;" +
+                "-fx-background-color: #849a47;" +
                 "-fx-padding: 10px;" +
-                "-fx-border-color: #6b4c2f;" +
+                "-fx-border-color: #6c584c;" +
                 "-fx-border-width: 2px;" +
                 "-fx-border-radius: 8px;" +
                 "-fx-background-radius: 8px;"
@@ -77,10 +79,13 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
             item.setMaxWidth(280);// Set a max width for each wishlist item
 
             javafx.scene.control.Label name = new javafx.scene.control.Label("Wishlist name goes here...");// Wishlist name label
-            name.setStyle("-fx-font-size: 14px; -fx-text-fill: #333;");// Wishlist name label style
+            name.setStyle("-fx-font-size: 12px; -fx-text-fill: black;");// Wishlist name label style
 
-            javafx.scene.control.Label count = new javafx.scene.control.Label("4 🎁"); // Gift emoji with count
-            count.setStyle("-fx-font-size: 14px; -fx-text-fill: #31672a;");// Gift emoji with count
+            javafx.scene.control.Label count = new javafx.scene.control.Label("4"); // Item count label
+            count.setStyle("-fx-font-size: 14px; -fx-text-fill: black;");// count label style
+
+            javafx.scene.control.Label emojiLabel = new javafx.scene.control.Label("🎁"); // Gift emoji with count
+            emojiLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: white;");// Gift emoji with count
 
             Button delete = new Button("X");// Delete button
             delete.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");// Delete button style
@@ -90,14 +95,14 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
             Region spacer = new Region();// Spacer to push count and delete button to the right
             HBox.setHgrow(spacer, Priority.ALWAYS);// Make spacer grow to take available space
 
-            item.getChildren().addAll(name, spacer, count, delete);// Add elements to the item HBox
+            item.getChildren().addAll(name, spacer, count, emojiLabel, delete);// Add elements to the item HBox
             wishlistContainer.getChildren().add(item);// Add item to the wishlist container
 
         }
 
         ScrollPane scrollPane = new ScrollPane(wishlistContainer);// ScrollPane to make the wishlist scrollable
         scrollPane.setFitToWidth(true);// Make the content fit the width of the ScrollPane
-        scrollPane.setStyle("-fx-background: transparent;");// Transparent background for ScrollPane
+        scrollPane.setStyle("-fx-background: #849a47;");// Transparent background for ScrollPane
 
         // Close-knappen(X) i øverste højre hjørne af boksen
         Button closeButton = new Button("X");// Opretter en luk-knap
@@ -134,11 +139,12 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
 
         // ---------------- Scene ----------------
 
-        // We instantiate a new Scene of size 300x250, with white background and and associated scene graph rooted in 'layout'
-        Scene scene = new Scene(layout, 1197/3, 2256/3, Color.WHITE);
+        layout.setStyle("-fx-background-color: #F0EAD2; -fx-font-family: 'Elms sans';");// Light beige background
+        Scene scene = new Scene(layout, 1197/3, 2256/3);//1197/3 width and 2256/3 height of an iPhone 16
+
 
         // We set the scene on the stage and display it
-        stage.setTitle("Stage Title");// Set the title of the stage
+        stage.setTitle("Wish List Scroll");// Set the title of the stage
         stage.setScene(scene);// Set the scene on the stage
         stage.show();// Show the stage
 
