@@ -32,7 +32,7 @@ public class loginPageFE {
         // 1. SPACER ADJUSTMENT
         // Increased to 300 to push text below the logo
         Region spacer = new Region();
-        spacer.setPrefHeight(300); 
+        spacer.setPrefHeight(233); 
 
         // 2. LABELS
         Label lblLogin = new Label("Log in");
@@ -156,5 +156,18 @@ public class loginPageFE {
         if (font != null) tf.setFont(font);
         tf.getStyleClass().add("standard-text-field"); 
         return tf;
+    }
+
+    private HBox createArrowInputField(String prompt, boolean isPassword, Font font, Runnable action) {
+        TextField tf = isPassword ? new PasswordField() : new TextField();
+        tf.setPromptText(prompt);
+        if (font != null) tf.setFont(font);
+        tf.getStyleClass().add("inner-text-field");
+        HBox.setHgrow(tf, Priority.ALWAYS);
+
+        HBox container = new HBox(tf);
+        container.setAlignment(Pos.CENTER_RIGHT);
+        container.getStyleClass().add("input-box");
+        return container;
     }
 }
