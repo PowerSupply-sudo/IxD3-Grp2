@@ -69,6 +69,7 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
         // Continue button to proceed (can be used for saving or next steps)
         Button continueButton = new Button("Continue");// Opretter en fortsætknap
         continueButton.setStyle("-fx-padding: 10px 40px;");// Tilføjer polstring til fortsætknappen for bedre udseende
+        //continueButton.setOnAction(e -> infoAboutWishFE.showinfoAboutWishScene(stage));
 
         // Saml alt i én VBox-boks med kant og baggrund
         VBox wishBox = new VBox(15);// Opretter en vertikal boks til at holde alle elementerne med 15px mellemrum
