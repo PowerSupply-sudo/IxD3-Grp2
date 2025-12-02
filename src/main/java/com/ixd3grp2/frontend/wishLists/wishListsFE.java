@@ -10,6 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import javafx.scene.control.Label;
+import javafx.scene.text.Font;
+
 public class wishListsFE extends Application {
 
     @Override
@@ -65,16 +68,48 @@ public class wishListsFE extends Application {
 
             // Håndterer klik på ønskeliste knap
             int wishListsIndex = i;// Gemmer indeks for brug i lambda udtryk
-            wishListsButton.setOnAction(e -> wishListDetailFE.showWishListDetailScene(stage, wishListsIndex));// Åbner detaljeret visning af ønskeliste
+            wishListsButton.setOnAction(e -> listOfWishesFE.showListOfWishesScene(stage, wishListsIndex));// Åbner detaljeret visning af ønskeliste
 
             grid.add(wishListsButton, i % columns, i / columns);// Tilføjer knap til grid på korrekt position
         }
+
+        // ---------------- Topbar med back, title og add ----------------
+        Button backButton = new Button("\u2190"); // ←
+        backButton.setOnAction(e -> new homePageFE().start(stage)); // tilbage til forsiden
+        backButton.setFont(Font.font("Elms sans", 16));
+        backButton.setStyle("-fx-text-fill: black; -fx-background-color: #DDE5B6; -fx-border-color: #849a47; "
+                            + "-fx-padding: 6px 15px; -fx-background-radius: 5px; -fx-border-radius: 5px;");
+
+        Label title = new Label("My wish lists");
+        title.setStyle("-fx-font-family: 'Elms sans'; -fx-font-size: 18px; -fx-text-fill: #31672aff;");
+
+        //skal måske være en plus ikon i stedet for tekst
+        //eller ikke have nogen overhovedet addbutton
+        Button addButton = new Button("+"); // højre hjørne (tilføj ny ønskeliste)
+        addButton.setStyle("-fx-background-color: #DDE5B6; -fx-border-color: #849a47; -fx-text-fill: black; "
+                        + "-fx-font-size: 20px; -fx-font-family: 'Elms sans'; "
+                        + "-fx-padding: 6px 12px; -fx-background-radius: 5px; -fx-border-radius: 5px;");
+
+        HBox topBar = new HBox();
+        topBar.setPadding(new Insets(10));
+        topBar.setAlignment(Pos.CENTER);
+        topBar.setSpacing(10);
+
+        Region leftSpacer = new Region();
+        Region rightSpacer = new Region();
+        HBox.setHgrow(leftSpacer, Priority.ALWAYS);
+        HBox.setHgrow(rightSpacer, Priority.ALWAYS);
+
+        // rækkefølge: back (venstre), spacer, title (midten), spacer, add (højre)
+        topBar.getChildren().addAll(backButton, leftSpacer, title, rightSpacer, addButton);
+
+
 
         // ---------------- Layout og Scene ----------------
         BorderPane layout = new BorderPane();// Hovedlayout for scenen
         layout.setCenter(grid);// Sætter grid i midten af layout
         layout.setBottom(bottombar);// Sætter bottombar i bunden af layout
-
+        layout.setTop(topBar);// Sætter topbar i toppen af layout
         // ---------------- Scene ----------------
 
         layout.setStyle(

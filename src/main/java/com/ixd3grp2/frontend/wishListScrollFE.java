@@ -39,7 +39,7 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
         Button profileButton = new Button("Profile");
 
         // Add buttons to the bottom bar, and the bottons placed in the correct order, and the size of the buttons
-        String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #31672aff; -fx-text-fill: #BLACK; "
+        String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #849a47; -fx-text-fill: #BLACK; "
                         + "-fx-font-size: 16px;-fx-font-family: 'Elms sans';" 
                         + "-fx-padding: 10px 20px; "
                         + "-fx-background-radius: 5px; -fx-border-radius: 5px;";
@@ -81,8 +81,11 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
             javafx.scene.control.Label name = new javafx.scene.control.Label("Wishlist name goes here...");// Wishlist name label
             name.setStyle("-fx-font-size: 12px; -fx-text-fill: black;");// Wishlist name label style
 
-            javafx.scene.control.Label count = new javafx.scene.control.Label("4 🎁"); // Gift emoji with count
-            count.setStyle("-fx-font-size: 14px; -fx-text-fill: #31672a;");// Gift emoji with count
+            javafx.scene.control.Label count = new javafx.scene.control.Label("4"); // Item count label
+            count.setStyle("-fx-font-size: 14px; -fx-text-fill: black;");// count label style
+
+            javafx.scene.control.Label emojiLabel = new javafx.scene.control.Label("🎁"); // Gift emoji with count
+            emojiLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: white;");// Gift emoji with count
 
             Button delete = new Button("X");// Delete button
             delete.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");// Delete button style
@@ -92,7 +95,7 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
             Region spacer = new Region();// Spacer to push count and delete button to the right
             HBox.setHgrow(spacer, Priority.ALWAYS);// Make spacer grow to take available space
 
-            item.getChildren().addAll(name, spacer, count, delete);// Add elements to the item HBox
+            item.getChildren().addAll(name, spacer, count, emojiLabel, delete);// Add elements to the item HBox
             wishlistContainer.getChildren().add(item);// Add item to the wishlist container
 
         }
