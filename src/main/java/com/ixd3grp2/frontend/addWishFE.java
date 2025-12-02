@@ -10,6 +10,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+
+
+// NOTE: Det kan være at extendere Application ikke er nødvendigt her, 
+// afhængigt af hvordan denne klasse bruges i resten af applikationen. 
+// Gælder også ift. @Override, så det kan fjernes hvis ikke nødvendigt.
+// Det samme gælder også for public void start(Stage stage) metoden,
+// det kan være at der skal bruges public static void showAddWishScene(Stage stage) i stedet.
+
+
 public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
 
     // Denne metode bygger hele "Add Wish"-siden og viser den i samme Stage
@@ -46,6 +55,13 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
         Button addToWishlist = new Button("Add to wishlist");// Opretter en knap til at tilføje ønsket til en ønskeliste
         Button newWishlist = new Button("New wishlist");// Opretter en knap til at oprette en ny ønskeliste
 
+        // Navigationshandlinger for knapperne
+        addToWishlist.setOnAction(e -> wishListScrollFE.showWishListScrollScene(stage));
+
+        // Når man klikker på "New wishlist", åbnes popup-boksen i et nyt vindue
+        newWishlist.setOnAction(e -> createWishListFE.showCreateWishListScene(stage));
+
+
         HBox wishListButtons = new HBox(10);// Opretter en horisontal boks til ønskelisteknapperne med 10px mellemrum
         wishListButtons.setAlignment(Pos.CENTER);// Centrerer ønskelisteknapperne i
         wishListButtons.getChildren().addAll(addToWishlist, newWishlist);// Tilføjer ønskelisteknapperne til boksen
@@ -69,8 +85,20 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
 
         wishBox.setMaxWidth(310);// Sætter maksimal bredde for boksen for at forhindre at den bliver for bred
 
-        // Tilføj alle elementer til boksen
-        wishBox.getChildren().addAll(wishTitle, wishListButtons, continueButton);// Tilføjer tekstfeltet, ønskelisteknapperne og fortsætknappen til boksen
+        // Exit-knappen(X) i øverste højre hjørne af boksen
+        Button closeButton = new Button("X");// Opretter en luk-knap
+        closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: BLACK;");// Gør luk-knappen mere synlig med fed skrift og sort farve
+        closeButton.setOnAction(e -> new homePageFE().start(stage));// Når luk-knappen klikkes, navigeres tilbage til homePageFE
+
+        HBox closeWrapper = new HBox();// Opretter en horisontal boks til at placere luk-knappen
+        closeWrapper.setAlignment(Pos.TOP_RIGHT);// Justerer luk-knappen til højre i bok
+        closeWrapper.setMaxWidth(Double.MAX_VALUE);// Gør boksen så bred som muligt for at sikre at knappen er i højre hjørne
+        closeWrapper.getChildren().add(closeButton);// Tilføjer luk-knappen til boksen
+
+        // Tilføj alle elementer til boksen - med X-knap øverst til højre,  
+        // som den første ting i boksen, da den er i en separat HBox,   
+        // og dermed placeres øverst.
+        wishBox.getChildren().addAll(closeWrapper, wishTitle, wishListButtons, continueButton);// Tilføjer luk-knappen, tekstfeltet, ønskelisteknapperne og fortsætknappen til boksen
 
         // ---------------- Layout ----------------
         // layout with center content and bottombar at the bottom

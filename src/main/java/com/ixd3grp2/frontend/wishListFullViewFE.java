@@ -9,14 +9,19 @@ import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class wishListFE extends Application {
+// NOTE: Det kan være at extendere Application ikke er nødvendigt her, 
+// afhængigt af hvordan denne klasse bruges i resten af applikationen. 
+// Gælder også ift. @Override, så det kan fjernes hvis ikke nødvendigt.
+// Det samme gælder også for public void start(Stage stage) metoden,
+// det kan være at der skal bruges public static void showWishListFullViewScene(Stage stage) i stedet.
+
+public class wishListFullViewFE extends Application {
     @Override
-    public void start(Stage stage) {
-        // Implementation for wishListFE goes here
+     public void start(Stage stage) {
+       // Implementation for wishListFullView goes here
 
 
 
-        
       //Create the bottombar
         HBox bottombar = new HBox();
         bottombar.setSpacing(40);// Space between buttons
@@ -41,6 +46,7 @@ public class wishListFE extends Application {
     
         // Use a BorderPane to position the bottombar at the bottom
         BorderPane layout = new BorderPane();
+        //layout.setCenter(centerContent);//// Main content in the center
         layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout
        
 
@@ -53,5 +59,4 @@ public class wishListFE extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    
 }
