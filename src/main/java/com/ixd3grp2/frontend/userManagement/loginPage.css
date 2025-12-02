@@ -71,3 +71,24 @@
     -fx-border-width: 0;
     -fx-cursor: hand;
 }
+
+/* --- 7. LOGIN BUTTON --- */
+.login-button {
+    -fx-background-color: #6C584C; /* Dark Brown to match text */
+    -fx-text-fill: #F0EAD2;        /* Light Cream to match background */
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+    -fx-padding: 10 15 10 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.login-button:hover {
+    -fx-background-color: #A98467; /* Lighter Brown on hover */
+}
+
+.login-button:pressed {
+    -fx-background-color: #5a493f;
+    -fx-effect: none;
+}
