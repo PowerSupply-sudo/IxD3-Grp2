@@ -103,22 +103,8 @@ public class homePageFE extends Application{
         layout.setCenter(centerContent);   // dit hovedindhold
         layout.setBottom(new VBox(wishListsBox, bottombar)); // knap + bottom bar
 
-
-
-
-        /**
-        button = new button();
-        searchButton.setStyle("-fx-border-color: #31672aff;");// Green background
-        homeButton.setStyle("-fx-border-color: #31672aff;"); // Green background
-        profileButton.setStyle("-fx-border-color: #31672aff;"); // Green background */
         // Add buttons to the bottombar
-        
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
-    
-        // Use a BorderPane to position the bottombar at the bottom
-        BorderPane layout = new BorderPane();
-        layout.setCenter(centerContent); // Main content in the center
-        layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout
        
 
         // We instantiate a new Scene of size 300x250, with white background and and associated scene graph rooted in 'layout'
