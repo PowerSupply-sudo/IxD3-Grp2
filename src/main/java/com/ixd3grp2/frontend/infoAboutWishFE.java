@@ -3,16 +3,27 @@ package com.ixd3grp2.frontend;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label; 
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+//this part imports things like Hbox and a rectangle shape. a shape can't center itself which is why Hbox is imported. the shapes need to be children of Hboxes
+import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-// NOTE: Det kan være at extendere Application ikke er nødvendigt her, 
-// afhængigt af hvordan denne klasse bruges i resten af applikationen.
-// Gælder også ift. @Override, så det kan fjernes hvis ikke nødvendigt.
-// Det samme gælder også for public void start(Stage stage) metoden,
 
+//importing icons
+import org.kordamp.ikonli.javafx.FontIcon;
+import org.kordamp.ikonli.feather.Feather;
 
 public class infoAboutWishFE extends Application {
     @Override
@@ -61,5 +72,9 @@ public class infoAboutWishFE extends Application {
         stage.setTitle("Info About Wish");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
