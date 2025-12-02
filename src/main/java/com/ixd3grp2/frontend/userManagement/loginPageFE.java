@@ -28,7 +28,7 @@ public class loginPageFE {
         // 1. SPACER ADJUSTMENT
         // Increased to 300 to push text below the logo
         Region spacer = new Region();
-        spacer.setPrefHeight(300); 
+        spacer.setPrefHeight(233); 
 
         // 2. LABELS
         Label lblLogin = new Label("Log in");
@@ -103,11 +103,7 @@ public class loginPageFE {
         tf.getStyleClass().add("inner-text-field");
         HBox.setHgrow(tf, Priority.ALWAYS);
 
-        Label arrow = new Label(">>"); 
-        arrow.getStyleClass().add("arrow-icon");
-        arrow.setOnMouseClicked(e -> { if (action != null) action.run(); });
-
-        HBox container = new HBox(tf, arrow);
+        HBox container = new HBox(tf);
         container.setAlignment(Pos.CENTER_RIGHT);
         container.getStyleClass().add("input-box");
         return container;
