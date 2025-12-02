@@ -1,5 +1,6 @@
 package com.ixd3grp2.frontend.userManagement;
 
+import com.ixd3grp2.auth.AuthService;
 import com.ixd3grp2.frontend.homePageFE;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -8,12 +9,15 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import java.io.File;
 
 public class loginPageFE {
 
     private static final String REGULAR_FONT_PATH = "/com/ixd3grp2/frontend/resources/fonts/ElmsSans-Regular.ttf";
+    private AuthService authService;
 
     public Scene getScene(Stage stage) {
+        authService = new AuthService();
  
         Font regularFont = loadCustomFont(REGULAR_FONT_PATH, 18);
         Font smallFont = loadCustomFont(REGULAR_FONT_PATH, 12);
@@ -38,9 +42,56 @@ public class loginPageFE {
         // 3. INPUTS
         TextField emailInput = createStyledTextField("example@gmail.com", regularFont);
         
-        HBox passContainer = createArrowInputField("password", true, regularFont, () -> {
-            new homePageFE().start(stage);
+        PasswordField passInput = new PasswordField();
+        passInput.setPromptText("password");
+        passInput.setFont(regularFont);
+        passInput.getStyleClass().add("inner-text-field");
+        
+        Label errorMessage = new Label();
+        errorMessage.setStyle("-fx-text-fill: #ff0000; -fx-font-size: 12;");
+        errorMessage.setVisible(false);
+        
+        HBox passContainer = new HBox();
+        passContainer.setAlignment(Pos.CENTER_RIGHT);
+        passContainer.getStyleClass().add("input-box");
+        
+        Label arrow = new Label(">>"); 
+        arrow.getStyleClass().add("arrow-icon");
+        arrow.setStyle("-fx-cursor: hand;");
+        arrow.setOnMouseClicked(e -> {
+            String email = emailInput.getText().trim();
+            String password = passInput.getText();
+            
+            // Validate inputs
+            if (email.isEmpty()) {
+                errorMessage.setText("Email cannot be empty");
+                errorMessage.setVisible(true);
+                return;
+            }
+            if (password.isEmpty()) {
+                errorMessage.setText("Password cannot be empty");
+                errorMessage.setVisible(true);
+                return;
+            }
+            
+            // Verify credentials
+            if (authService.verifyLogin(email, password)) {
+                errorMessage.setVisible(false);
+                // Create session marker
+                try {
+                    new File("session.logged").createNewFile();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                new homePageFE().start(stage);
+            } else {
+                errorMessage.setText("Invalid email or password");
+                errorMessage.setVisible(true);
+            }
         });
+        
+        HBox.setHgrow(passInput, Priority.ALWAYS);
+        passContainer.getChildren().addAll(passInput, arrow);
         
         // 4. FORGOT PASSWORD
         Hyperlink forgotPass = new Hyperlink("forgot password?");
@@ -55,14 +106,25 @@ public class loginPageFE {
         lblOrSignup.getStyleClass().add("label-text");
         lblOrSignup.setPadding(new Insets(10, 0, 0, 0));
 
-        HBox signupContainer = createArrowInputField("example@gmail.com", false, regularFont, () -> {
+        TextField signupEmailInput = createStyledTextField("example@gmail.com", regularFont);
+        HBox signupContainer = new HBox(signupEmailInput);
+        signupContainer.setAlignment(Pos.CENTER_RIGHT);
+        signupContainer.getStyleClass().add("input-box");
+        
+        Label signupArrow = new Label(">>"); 
+        signupArrow.getStyleClass().add("arrow-icon");
+        signupArrow.setStyle("-fx-cursor: hand;");
+        signupArrow.setOnMouseClicked(e -> {
             registerPageFE register = new registerPageFE();
             stage.setScene(register.getScene(stage));
         });
+        
+        HBox.setHgrow(signupEmailInput, Priority.ALWAYS);
+        signupContainer.getChildren().add(signupArrow);
 
         contentBox.getChildren().addAll(
                 spacer, 
-                lblLogin, emailInput, passContainer, forgotContainer,
+                lblLogin, emailInput, passContainer, errorMessage, forgotContainer,
                 lblOrSignup, signupContainer
         );
 

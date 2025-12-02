@@ -103,20 +103,8 @@ public class homePageFE extends Application{
         layout.setCenter(centerContent);   // dit hovedindhold
         layout.setBottom(new VBox(wishListsBox, bottombar)); // knap + bottom bar
 
-
-
-
-        /**
-        button = new button();
-        searchButton.setStyle("-fx-border-color: #31672aff;");// Green background
-        homeButton.setStyle("-fx-border-color: #31672aff;"); // Green background
-        profileButton.setStyle("-fx-border-color: #31672aff;"); // Green background */
         // Add buttons to the bottombar
-        
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
-    
-    // Use the existing BorderPane to position the bottombar at the bottom
-    // (do not redeclare `layout` here — it was declared above)
        
 
         // We instantiate a new Scene of size 300x250, with white background and and associated scene graph rooted in 'layout'
@@ -128,33 +116,6 @@ public class homePageFE extends Application{
         stage.setScene(scene);
         stage.show();
     }
-    
-    
-    /**VBox content = new VBox(12);
-    content.setPadding(new Insets(12));
-    content.setAlignment(Pos.CENTER);
-
-    TextField wishTitle = new TextField();
-    wishTitle.setPromptText("Enter Wish title");
-
-    HBox buttonRow = new HBox(10);
-    buttonRow.setAlignment(Pos.CENTER);
-    Button addToWishlist = new Button("Add to wishlist");
-    Button newWishlist = new Button("New wishlist");
-    buttonRow.getChildren().addAll(addToWishlist, newWishlist);
-
-    Button continueButton = new Button("Continue");
-    continueButton.setOnAction(ev -> {
-       dialog.close();
-    });
-    continueButton.setStyle("-fx-padding: 8px 36px;");
-
-    content.getChildren().addAll(wishTitle, buttonRow, continueButton);
-
-    dialog.getDialogPane().setContent(content);
-    dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
-    dialog.showAndWait();
-    */
     
     public static void main(String[] args) {
         /* Launch the Application class in which is in */

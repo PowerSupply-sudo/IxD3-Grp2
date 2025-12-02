@@ -1,0 +1,73 @@
+/* --- 1. ROOT & BACKGROUND --- */
+.root {
+    -fx-background-color: #F0EAD2; 
+    -fx-background-image: url("/com/ixd3grp2/frontend/resources/images/sprout_bg.png");
+    -fx-background-size: cover;
+    -fx-background-position: center top;
+    -fx-background-repeat: no-repeat;
+}
+
+/* --- 2. LABELS --- */
+.label-text {
+    -fx-text-fill: #6C584C;
+}
+
+/* --- 3. INPUTS (COMBINED STYLE) --- */
+/* IMPORTANT: Applied to both input-box (arrow) and standard-text-field (email) */
+.input-box, .standard-text-field {
+    -fx-background-color: white;
+    -fx-border-color: #A98467;
+    -fx-border-width: 2px;
+    
+    /* 10px Radius */
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    
+    /* LOCKED PADDING & INSETS */
+    -fx-padding: 10 15 10 15;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+    -fx-text-fill: #6C584C;
+}
+
+/* Hover/Focus State - Keeps dimensions exactly the same to stop shifting */
+.input-box:hover, .input-box:focused-within, 
+.standard-text-field:hover, .standard-text-field:focused {
+    -fx-border-color: #6C584C;
+    -fx-border-width: 2px;
+    -fx-padding: 10 15 10 15; 
+    -fx-background-insets: 0;
+    -fx-background-color: white;
+}
+
+/* --- 4. INNER TEXT --- */
+.inner-text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #6C584C;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+.inner-text-field:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+
+/* --- 5. ARROW ICON --- */
+.arrow-icon {
+    -fx-text-fill: #A98467;
+    -fx-font-size: 15px; 
+    -fx-min-width: 25px;
+    -fx-padding: 0 5 0 0;
+    -fx-cursor: hand;
+}
+.arrow-icon:hover {
+    -fx-text-fill: #6C584C;
+}
+
+/* --- 6. LINKS --- */
+.forgot-link {
+    -fx-text-fill: #6C584C;
+    -fx-underline: false;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+}
