@@ -1,6 +1,6 @@
 package com.ixd3grp2.frontend.wishLists;
 
-// Backend class for wish lists overview.
+// Backend class for wish lists overview
 public class wishListsBoxes {
     private final String name; 
 

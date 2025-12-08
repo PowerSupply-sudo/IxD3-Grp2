@@ -23,7 +23,7 @@ public class wishListFullViewFE extends Application {
         HBox bottombar = new HBox();
         bottombar.setSpacing(40);// Space between buttons
         bottombar.setStyle("-fx-background-color: #6c584c; -fx-padding: 10px; -fx-min-height: 60px;"); // Ligth greenbackground med fixed height
-        //bottombar.setLayoutY(2256/3 - 50); // Position at the bottom of the scene.
+        //bottombar.setLayoutY(2256/3 - 50); // Position at the bottom of the scene
         bottombar.setAlignment(Pos.CENTER);// Center buttons horizontally and vertically
 
 
