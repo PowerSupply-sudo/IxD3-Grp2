@@ -144,11 +144,11 @@ public class listOfWishesFE {
 
         );
 
-        int columns = 3;
-        for (int i = 0; i < demoWishes.size(); i++) {
-            listOfWishesBoxes item = demoWishes.get(i);
+        int columns = 3;// Number of columns in the grid (3 items per row)
+        for (int i = 0; i < demoWishes.size(); i++) {// Loop through all wishes in demoWishes
+            listOfWishesBoxes item = demoWishes.get(i);// Get the wish object at index i
 
-            VBox itemBox = new VBox(10);
+            VBox itemBox = new VBox(10);// Create a vertical box with 10px spacing for this wish
             itemBox.setAlignment(Pos.CENTER);
             itemBox.setStyle("-fx-background-color: #849a47; -fx-background-radius: 8px;");
             itemBox.setPadding(new Insets(10));
@@ -164,7 +164,7 @@ public class listOfWishesFE {
             itemName.setStyle("-fx-text-fill: black;");
 
             // 👉 Kun vis deleteButton hvis tiden er udløbet
-            if (isExpired(item.getTimeLeft())) {
+            if (isExpired(item.getTimeLeft())) {// Check if the wish's timer has expired
                 Button deleteButton = new Button("Bye \uD83D\uDDD1");
                 deleteButton.setFont(Font.font("Elms sans", 12));
                 deleteButton.setStyle(
@@ -173,31 +173,32 @@ public class listOfWishesFE {
                     "-fx-border-color: black; " +
                     "-fx-background-radius: 8px; " +
                     "-fx-border-radius: 8px;"
-                );
-                itemBox.getChildren().addAll(timeLabel, itemName, deleteButton);
+                );// Style the button (colors, borders, rounded corners)
+
+                itemBox.getChildren().addAll(timeLabel, itemName, deleteButton);// Add time, name, and delete button to the item box
                 deleteButton.setOnAction(e -> {
-                grid.getChildren().remove(itemBox);
-                System.out.println("Ønske '" + item.getName() + "' slettet.");
+                grid.getChildren().remove(itemBox);// Remove the item from the grid when clicked
+                System.out.println("Ønske '" + item.getName() + "' slettet.");// Print confirmation in console
                  });
             } else {
-                itemBox.getChildren().addAll(timeLabel, itemName);
+                itemBox.getChildren().addAll(timeLabel, itemName);// If not expired, only show time and name (no delete button)
             }
                 
         
-
+            // When itemBox is clicked, open the "wish unlocked YES" scene
             itemBox.setOnMouseClicked(e -> new wishUnlockedYesFE().start(stage));
 
-            itemBox.setOnMouseClicked(e -> {
+            itemBox.setOnMouseClicked(e -> {// Override: handle click with condition
                 if (isExpired(item.getTimeLeft())) {
-                    new wishUnlockedYesFE().start(stage);
+                    new wishUnlockedYesFE().start(stage); // If timer expired → go to YES scene
                 } else {
                     new wishUnlockedNoFE().start(stage);
-                }
+                }   // If still time left → go to NO scene
             });
 
-            int row = i / columns;
-            int col = i % columns;
-            grid.add(itemBox, col, row);
+            int row = i / columns;// Calculate row index based on item position
+            int col = i % columns;// Calculate column index (wraps every 'columns' items)
+            grid.add(itemBox, col, row);// Place itemBox in the grid at (col, row)
         }
 
         // ---------------- Layout ----------------

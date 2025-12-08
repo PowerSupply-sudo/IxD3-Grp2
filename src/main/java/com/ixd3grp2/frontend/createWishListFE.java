@@ -18,7 +18,7 @@ public class createWishListFE {
     public static void showCreateWishListScene(Stage stage) {
 
         // ---------------- Popup-boks (centreret indhold) ----------------
-        VBox popupBox = new VBox(15);
+        VBox popupBox = new VBox(15);//A VBox stacks elements vertically (top to bottom)
         popupBox.setAlignment(Pos.CENTER);
         popupBox.setStyle(
             "-fx-padding: 20px;" +
@@ -40,7 +40,7 @@ public class createWishListFE {
         closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: BLACK;"); // Stil for at gøre den mere synlig
 
         // HBox til at placere knappen i højre hjørne
-        HBox closeWrapper = new HBox();
+        HBox closeWrapper = new HBox();//HBox arranges them horizontally (left to right).
         closeWrapper.setAlignment(Pos.CENTER_RIGHT);
         closeWrapper.getChildren().add(closeButton);
 

@@ -25,7 +25,7 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
 
         //---------------- Center-boks med knapper ----------------
         // Input field to enter wish title
-        TextField wishTitle = new TextField();// Opretter et tekstfelt til at indtaste ønsketitel
+        TextField wishTitle = new TextField();// Opretter et tekstfelt til at indtaste ønsketitel.
         wishTitle.setPromptText("Enter Wish title");// Sætter en prompttekst i tekstfeltet for at guide brugeren
 
         // Buttons for adding to wishlist and creating new wishlist

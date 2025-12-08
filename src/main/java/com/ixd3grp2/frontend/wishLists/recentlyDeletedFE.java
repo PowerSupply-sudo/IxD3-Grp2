@@ -71,6 +71,7 @@ public class recentlyDeletedFE extends Application { // Klassen extends Applicat
                 "-fx-padding: 10px;" +
                 "-fx-border-radius: 8px;" +
                 "-fx-background-radius: 8px;"
+                //styling
             );
             itemBox.setMaxWidth(300); // Maks bredde for boksen
 

@@ -139,11 +139,11 @@ public class wishUnlockedYesFE extends Application {
                 System.out.println("Wish deleted.");
             });
 
-            HBox buttonBar = new HBox(15);
+            HBox buttonBar = new HBox(15);//while an HBox arranges them horizontally (left to right).
             buttonBar.setAlignment(Pos.CENTER);
             buttonBar.getChildren().addAll(saveButton, deleteButton);
 
-            VBox editLayout = new VBox(15);
+            VBox editLayout = new VBox(15);//VBox stacks elements vertically (top to bottom),
             editLayout.setPadding(new Insets(20));
             editLayout.setAlignment(Pos.CENTER);
             editLayout.getChildren().addAll(editLabel, nameField, buttonBar);
@@ -155,7 +155,7 @@ public class wishUnlockedYesFE extends Application {
         });
 
 
-        HBox topBar = new HBox();
+        HBox topBar = new HBox();//while an HBox arranges them horizontally (left to right).
         topBar.setPadding(new Insets(10));
         topBar.setAlignment(Pos.CENTER);
         topBar.setSpacing(10);
@@ -171,7 +171,7 @@ public class wishUnlockedYesFE extends Application {
         
         //---------------------------- Layout og Scene ----------------------------
         // Samler topContent og actionButtons i centerContent
-        VBox centerContent = new VBox(20);
+        VBox centerContent = new VBox(20);//VBox stacks elements vertically (top to bottom),
         centerContent.setAlignment(Pos.CENTER);
         centerContent.getChildren().addAll(topContent, actionButtons);
 
