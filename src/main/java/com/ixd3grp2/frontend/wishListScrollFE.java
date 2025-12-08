@@ -14,49 +14,17 @@ import javafx.stage.Stage;
 // Nu er der tilføjet flere funktioner f.eks som at man kan slet-knapper for hver ønskeliste,
 // men når man lukker scenen ned, så gemmes ændringerne ikke.
 
-// NOTE: Det kan være at extendere Application ikke er nødvendigt her, 
-// afhængigt af hvordan denne klasse bruges i resten af applikationen. 
-// Gælder også ift. @Override, så det kan fjernes hvis ikke nødvendigt.
-// Det samme gælder også for public void start(Stage stage) metoden,
-// det kan være at der skal bruges public static void showWishListScrollScene(Stage stage) i stedet.
 
 public class wishListScrollFE extends Application {// Klasse til at oprette "Wish List Scroll"-siden i frontend
     @Override
      public void start(Stage stage) {// Metode til at vise "Wish List Scroll"-scenen i den givne stage
-// ---------------- Bottombar ----------------
-
-        //Create the bottombar
-        HBox bottombar = new HBox();
-        bottombar.setSpacing(40);// Space between buttons
-        bottombar.setStyle("-fx-background-color: #6c584c; -fx-padding: 10px; -fx-min-height: 60px;"); // Ligth greenbackground med fixed height
-        //bottombar.setLayoutY(2256/3 - 50); // Position at the bottom of the scene
-        bottombar.setAlignment(Pos.CENTER);// Center buttons horizontally and vertically
-
-
-        // Create buttons for the bottom bar
-        Button searchButton = new Button("Search");
-        Button homeButton = new Button("Home");
-        Button profileButton = new Button("Profile");
-
-        // Add buttons to the bottom bar, and the bottons placed in the correct order, and the size of the buttons
-        String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #849a47; -fx-text-fill: #BLACK; "
-                        + "-fx-font-size: 16px;-fx-font-family: 'Elms sans';" 
-                        + "-fx-padding: 10px 20px; "
-                        + "-fx-background-radius: 5px; -fx-border-radius: 5px;";
-        searchButton.setStyle(buttonStyle);
-        homeButton.setStyle(buttonStyle);
-        profileButton.setStyle(buttonStyle);
-
-
-        // Add buttons to the bottombar
-        bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
     
     // ---------------- Layout ----------------   
 
         // Use a BorderPane to position the bottombar at the bottom
         BorderPane layout = new BorderPane();
         //layout.setCenter(centerContent);//// Main content in the center
-        layout.setBottom(bottombar); // Add the bottom bar to the bottom of the layout
+        layout.setBottom(BottomBarFactory.createBottomBar(stage)); // Add the bottom bar to the bottom of the layout
        
 // ---------------- Scrollbart ønskeliste-indhold ----------------
         // (Indholdet til den scrollbare ønskeliste skal implementeres her)
@@ -118,6 +86,8 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
         // (Bekræft-knappen skal implementeres her)
 
         Button confirmButton = new Button("Confirm");// Opretter en bekræft-knap
+        confirmButton.setOnAction(e -> {new homePageFE().start(stage);});// Udskriver en besked i konsollen
+            // Her kan yderligere logik til bekræftelse implementeres
         confirmButton.setStyle(// Stil for bekræft-knappen
             "-fx-background-color: #6b4c2f;" +
             "-fx-text-fill: white;" +
@@ -126,7 +96,8 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
             "-fx-padding: 10px 30px;" +
             "-fx-background-radius: 8px;"
         );// Sætter stil for bekræft-knappen
-
+        
+    
     // ---------------- Layout ----------------
         //(layout er allerede oprettet som en BorderPane ovenfor)
 
@@ -149,7 +120,7 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
         stage.show();// Show the stage
 
          // Navigation (eksempel)
-        homeButton.setOnAction(e -> new homePageFE().start(stage));
+       // homeButton.setOnAction(e -> new homePageFE().start(stage));
     }
     // Valgfrit: gør det nemt at skifte til denne scene fra andre klasser
     public static void showWishListScrollScene(Stage stage) {// Statisk metode til at vise "Wish List Scroll"-scenen i den givne stage

@@ -23,32 +23,6 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
     // Denne metode bygger hele "Add Wish"-siden og viser den i samme Stage
     public static void showAddWishScene(Stage stage) {// Metode til at vise "Add Wish"-scenen i den givne stage
 
-        // ---------------- Bottombar ----------------
-         //Create the bottombar
-        HBox bottombar = new HBox();
-        bottombar.setSpacing(40);// Space between buttons
-        bottombar.setStyle("-fx-background-color: #6c584c; -fx-padding: 10px; -fx-min-height: 60px;"); // Ligth greenbackground med fixed height
-        //bottombar.setLayoutY(2256/3 - 50); // Position at the bottom of the scene
-        bottombar.setAlignment(Pos.CENTER);// Center buttons horizontally and vertically
-
-
-        // Create buttons for the bottom bar
-        Button searchButton = new Button("Search");
-        Button homeButton = new Button("Home");
-        Button profileButton = new Button("Profile");
-
-        // Add buttons to the bottom bar, and the bottons placed in the correct order, and the size of the buttons
-        String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #31672aff; -fx-text-fill: #BLACK; "
-                        + "-fx-font-size: 16px;-fx-font-family: 'Elms sans';" 
-                        + "-fx-padding: 10px 20px; "
-                        + "-fx-background-radius: 5px; -fx-border-radius: 5px;";
-        searchButton.setStyle(buttonStyle);
-        homeButton.setStyle(buttonStyle);
-        profileButton.setStyle(buttonStyle);
-
-        // Tilføj knapperne til bottombar
-        bottombar.getChildren().addAll(searchButton, homeButton, profileButton);// Tilføjer knapperne til bottombaren
-
         //---------------- Center-boks med knapper ----------------
         // Input field to enter wish title
         TextField wishTitle = new TextField();// Opretter et tekstfelt til at indtaste ønsketitel
@@ -126,8 +100,11 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
 
         // ---------------- Layout ----------------
         // layout with center content and bottombar at the bottom
-        BorderPane layout = new BorderPane();// Opretter et BorderPane-layout for at arrangere elementerne
-        layout.setBottom(bottombar);// Sætter bottombaren i bunden af layoutet
+        BorderPane layout = new BorderPane();
+        //layout.setTop(topBar);// Sets the top bar, kun hvis det er noget vil vil have deroppe i topbar
+        //layout.setCenter(centerContent);// Sets the center content, kun hvis det er noget vil vil have deroppe i topbar
+        layout.setBottom(BottomBarFactory.createBottomBar(stage));
+
 
         // Opretter en wrapper VBox til at centrere boksen
         VBox centerWrapper = new VBox();
@@ -143,8 +120,5 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
         stage.setTitle("Add Wish");// Sætter titlen på vinduet(stage)
         stage.show();// Viser scenen på scenen(stage)
 
-        // Navigation tilbage til homePageFE
-        // 'Home'-button sends the user back to the home page
-        homeButton.setOnAction(e -> new homePageFE().start(stage));// Når homeButton klikkes, kaldes start-metoden i homePageFE-klassen med den nuværende stage som argument
     }
 }
