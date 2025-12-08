@@ -266,7 +266,7 @@ public class infoAboutWishFE extends Application {
         
         saveButton.setOnAction(e -> {
             System.out.println("Save wish clicked!");
-            // TODO: Save the wish data
+            // TO DO: Save the wish data
             onClose.run();  // Close the popup after saving
         });
         

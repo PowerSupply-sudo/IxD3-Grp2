@@ -3,7 +3,7 @@ package com.ixd3grp2.frontend;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;              // ✅ vigtigt import
+import javafx.stage.Stage;    
 
 public class BottomBarFactory {
 

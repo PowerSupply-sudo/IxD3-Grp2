@@ -21,7 +21,7 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
     
     // ---------------- Layout ----------------   
 
-        // Use a BorderPane to position the bottombar at the bottom
+        // Use a BorderPane to position the bottombar at the bottom.
         BorderPane layout = new BorderPane();
         //layout.setCenter(centerContent);//// Main content in the center
         layout.setBottom(BottomBarFactory.createBottomBar(stage)); // Add the bottom bar to the bottom of the layout

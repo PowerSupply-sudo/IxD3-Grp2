@@ -55,9 +55,9 @@ public class wishListsFE extends Application {
         }
         // ---------------- ScrollPane for grid ----------------
         ScrollPane scrollPane = new ScrollPane(grid);
-        scrollPane.setFitToWidth(true);   // gør at grid fylder hele bredden
-        scrollPane.setFitToHeight(false);  // gør at grid fylder hele højden
-        scrollPane.setPannable(true);     // tillader at man kan scrolle med musen
+        scrollPane.setFitToWidth(true);   // gør at grid fylder hele bredden.
+        scrollPane.setFitToHeight(false);  // gør at grid fylder hele højden.
+        scrollPane.setPannable(true);     // tillader at man kan scrolle med musen.
         scrollPane.setStyle("-fx-background: #f0ead2; -fx-background-color: #f0ead2;"); // gør baggrunden gennemsigtig
 
         // Kun lodret scrollbar
