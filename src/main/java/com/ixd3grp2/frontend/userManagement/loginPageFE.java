@@ -14,7 +14,7 @@ public class loginPageFE {
     private static final String REGULAR_FONT_PATH = "/com/ixd3grp2/frontend/resources/fonts/ElmsSans-Regular.ttf";
 
     public Scene getScene(Stage stage) {
- 
+
         Font regularFont = loadCustomFont(REGULAR_FONT_PATH, 18);
         Font smallFont = loadCustomFont(REGULAR_FONT_PATH, 12);
         if (regularFont == null) regularFont = Font.font("Arial", 18);
@@ -23,25 +23,17 @@ public class loginPageFE {
         VBox contentBox = new VBox(15);
         contentBox.setAlignment(Pos.TOP_CENTER);
         contentBox.setMaxWidth(320);
-        contentBox.setPadding(new Insets(20)); 
+        contentBox.setPadding(new Insets(20));
 
         // 1. SPACER ADJUSTMENT
-        // Increased to 300 to push text below the logo
         Region spacer = new Region();
-        spacer.setPrefHeight(233); 
-
-        // 2. LABELS
-        Label lblLogin = new Label("Log in");
-        lblLogin.setFont(regularFont);
-        lblLogin.getStyleClass().add("label-text");
+        spacer.setPrefHeight(233);
 
         // 3. INPUTS
-        TextField emailInput = createStyledTextField("example@gmail.com", regularFont);
-        
-        HBox passContainer = createArrowInputField("password", true, regularFont, () -> {
-            new homePageFE().start(stage);
-        });
-        
+        // Pass 'false' for email (standard text), 'true' for password
+        TextField emailInput = createStyledTextField("example@gmail.com", regularFont, false);
+        TextField passInput = createStyledTextField("password", regularFont, true);
+
         // 4. FORGOT PASSWORD
         Hyperlink forgotPass = new Hyperlink("forgot password?");
         forgotPass.setFont(smallFont);
@@ -49,26 +41,44 @@ public class loginPageFE {
         HBox forgotContainer = new HBox(forgotPass);
         forgotContainer.setAlignment(Pos.CENTER_RIGHT);
 
-        // 5. SIGN UP SECTION
+        // 5. NEW LOGIN BUTTON
+        Button btnLogin = new Button("Log in");
+        btnLogin.setFont(regularFont);
+        btnLogin.setMaxWidth(Double.MAX_VALUE/2); // Fill width
+        btnLogin.getStyleClass().add("login-button");
+        btnLogin.setOnAction(e -> {
+            new homePageFE().start(stage);
+        });
+
+        // 6. SECTION SPACER (Moves Sign Up down)
+        Region sectionSpacer = new Region();
+        sectionSpacer.setPrefHeight(30);
+
+        // 7. SIGN UP SECTION
         Label lblOrSignup = new Label("or sign up");
         lblOrSignup.setFont(regularFont);
         lblOrSignup.getStyleClass().add("label-text");
-        lblOrSignup.setPadding(new Insets(10, 0, 0, 0));
 
+        // Sign up keeps the arrow style as requested
         HBox signupContainer = createArrowInputField("example@gmail.com", false, regularFont, () -> {
             registerPageFE register = new registerPageFE();
             stage.setScene(register.getScene(stage));
         });
 
         contentBox.getChildren().addAll(
-                spacer, 
-                lblLogin, emailInput, passContainer, forgotContainer,
-                lblOrSignup, signupContainer
+                spacer,
+                emailInput, 
+                passInput, 
+                forgotContainer,
+                btnLogin,       // <--- Added Button
+                sectionSpacer,  // <--- Added Spacer
+                lblOrSignup, 
+                signupContainer
         );
 
         StackPane root = new StackPane();
         root.getChildren().addAll(contentBox);
-        
+
         Scene scene = new Scene(root, 1197.0/3, 2256.0/3);
 
         try {
@@ -88,11 +98,12 @@ public class loginPageFE {
         } catch (Exception e) { return null; }
     }
 
-    private TextField createStyledTextField(String prompt, Font font) {
-        TextField tf = new TextField();
+    // Updated to handle PasswordField creation
+    private TextField createStyledTextField(String prompt, Font font, boolean isPassword) {
+        TextField tf = isPassword ? new PasswordField() : new TextField();
         tf.setPromptText(prompt);
         if (font != null) tf.setFont(font);
-        tf.getStyleClass().add("standard-text-field"); 
+        tf.getStyleClass().add("standard-text-field");
         return tf;
     }
 
@@ -103,9 +114,15 @@ public class loginPageFE {
         tf.getStyleClass().add("inner-text-field");
         HBox.setHgrow(tf, Priority.ALWAYS);
 
+        // Note: You would usually add a Button or Label with an arrow icon here
+        // tailored to your previous logic, but kept simple here for the structure.
         HBox container = new HBox(tf);
         container.setAlignment(Pos.CENTER_RIGHT);
         container.getStyleClass().add("input-box");
+        
+        // Make the whole box clickable for the action if intended
+        container.setOnMouseClicked(e -> action.run());
+        
         return container;
     }
 }
