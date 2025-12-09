@@ -1,15 +1,19 @@
-package com.ixd3grp2;
+package com.ixd3grp2.DBActions;
 
-import com.ixd3grp2.db.User;
-
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class dbActions {
+import com.ixd3grp2.DBConnection;
+import com.ixd3grp2.db.User;
+
+public class UserdbActions {
     private DBConnection dbConn;
 
-    public dbActions() throws SQLException {
+    public UserdbActions() throws SQLException {
         this.dbConn = DBConnection.getInstance();
     }
 
@@ -88,3 +92,5 @@ public class dbActions {
         );
     }
 }
+
+
