@@ -192,7 +192,7 @@ public class infoAboutWishFE extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
+//ksjdfbksjhfks
     public static void main(String[] args) {
         launch(args);
     }

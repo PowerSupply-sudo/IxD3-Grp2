@@ -1,5 +1,7 @@
 package com.ixd3grp2.frontend.userManagement;
 
+import com.ixd3grp2.auth.AuthService;
+import com.ixd3grp2.auth.RegistrationResult;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,17 +13,21 @@ import javafx.stage.Stage;
 public class registerPageFE {
 
     private static final String REGULAR_FONT_PATH = "/com/ixd3grp2/frontend/resources/fonts/ElmsSans-Regular.ttf";
+    private AuthService authService;
 
     public Scene getScene(Stage stage) {
+        authService = new AuthService();
  
         Font regularFont = loadCustomFont(REGULAR_FONT_PATH, 16); 
         Font titleFont = loadCustomFont(REGULAR_FONT_PATH, 36);
+        Font smallFont = loadCustomFont(REGULAR_FONT_PATH, 12);
         
         if (regularFont == null) regularFont = Font.font("Arial", 16);
         if (titleFont == null) titleFont = Font.font("Arial", 36);
+        if (smallFont == null) smallFont = Font.font("Arial", 12);
 
         VBox contentBox = new VBox(15);
-        contentBox.setAlignment(Pos.CENTER);
+        contentBox.setAlignment(Pos.TOP_CENTER);
         contentBox.setMaxWidth(340); 
         contentBox.setPadding(new Insets(20));
 
@@ -31,6 +37,12 @@ public class registerPageFE {
         lblTitle.getStyleClass().add("label-text");
         VBox.setMargin(lblTitle, new Insets(0, 0, 10, 0));
 
+        // --- ERROR/SUCCESS MESSAGE ---
+        Label messageLabel = new Label();
+        messageLabel.setFont(smallFont);
+        messageLabel.setWrapText(true);
+        messageLabel.setVisible(false);
+        
         // --- INPUTS ---
         TextField emailInput = createStyledTextField("example@gmail.com", regularFont);
         
@@ -38,13 +50,19 @@ public class registerPageFE {
         lblSelectPass.setFont(regularFont);
         lblSelectPass.getStyleClass().add("label-text");
 
-        TextField passInput = createStyledTextField("password", regularFont); 
+        PasswordField passInput = new PasswordField();
+        passInput.setPromptText("password");
+        passInput.setFont(regularFont);
+        passInput.getStyleClass().add("standard-text-field");
         
         Label lblConfirmPass = new Label("confirm password");
         lblConfirmPass.setFont(regularFont);
         lblConfirmPass.getStyleClass().add("label-text");
         
-        TextField confirmPassInput = createStyledTextField("password", regularFont);
+        PasswordField confirmPassInput = new PasswordField();
+        confirmPassInput.setPromptText("password");
+        confirmPassInput.setFont(regularFont);
+        confirmPassInput.getStyleClass().add("standard-text-field");
 
         // --- BUTTON ---
         Button btnContinue = new Button("continue  →");
@@ -54,12 +72,40 @@ public class registerPageFE {
         VBox.setMargin(btnContinue, new Insets(20, 0, 0, 0));
         
         btnContinue.setOnAction(e -> {
-            loginPageFE login = new loginPageFE();
-            stage.setScene(login.getScene(stage));
+            String email = emailInput.getText().trim();
+            String password = passInput.getText();
+            String confirmPassword = confirmPassInput.getText();
+            
+            // Call registration service
+            RegistrationResult result = authService.register(email, password, confirmPassword);
+            
+            if (result.success) {
+                messageLabel.setText("Registration successful! Redirecting to login...");
+                messageLabel.setStyle("-fx-text-fill: #00aa00;");
+                messageLabel.setVisible(true);
+                
+                // Redirect to login page after 1.5 seconds
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(1500);
+                        javafx.application.Platform.runLater(() -> {
+                            loginPageFE login = new loginPageFE();
+                            stage.setScene(login.getScene(stage));
+                        });
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                }).start();
+            } else {
+                messageLabel.setText(result.message);
+                messageLabel.setStyle("-fx-text-fill: #ff0000;");
+                messageLabel.setVisible(true);
+            }
         });
 
         // --- BACK LINK ---
         Hyperlink backLink = new Hyperlink("back to login");
+        backLink.setFont(smallFont);
         backLink.getStyleClass().add("forgot-link");
         backLink.setOnAction(e -> {
             loginPageFE login = new loginPageFE();
@@ -73,6 +119,7 @@ public class registerPageFE {
                 passInput,
                 lblConfirmPass,
                 confirmPassInput,
+                messageLabel,
                 btnContinue,
                 backLink
         );
