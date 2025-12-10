@@ -72,8 +72,8 @@ public class createWishListFE {
         BorderPane layout = new BorderPane();
         layout.setCenter(centerWrapper);
         layout.setBottom(BottomBarFactory.createBottomBar(stage));
-
         layout.setStyle("-fx-background-color: #F0EAD2; -fx-font-family: 'Elms sans';");// Light beige background
+        
         Scene scene = new Scene(layout, 1197/3, 2256/3);//1197/3 width and 2256/3 height of an iPhone 16
         stage.setScene(scene);
         stage.setTitle("Create Wishlist");

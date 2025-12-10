@@ -29,9 +29,9 @@ public class homePageFE extends Application{
 
 
         // Create buttons for the bottom bar
-        Button searchButton = new Button("Search");
-        Button homeButton = new Button("Home");
-        Button profileButton = new Button("Profile");
+        Button searchButton = new Button("\uD83D\uDD0D");
+        Button homeButton = new Button("\uD83C\uDFE0");
+        Button profileButton = new Button("\uD83D\uDC64");
     
 
         String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #31672aff; -fx-text-fill: #BLACK; "
