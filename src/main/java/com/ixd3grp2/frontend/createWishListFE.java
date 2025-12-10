@@ -1,5 +1,6 @@
 package com.ixd3grp2.frontend;
 
+
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,7 +9,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
@@ -17,32 +17,13 @@ public class createWishListFE {
 
     public static void showCreateWishListScene(Stage stage) {
 
-        // ---------------- Bottombar ----------------
-        HBox bottombar = new HBox();
-        bottombar.setSpacing(40);
-        bottombar.setStyle("-fx-background-color: #b1d06aff; -fx-padding: 10px; -fx-min-height: 60px;");
-        bottombar.setAlignment(Pos.CENTER);
-
-        Button searchButton = new Button("Search");
-        Button homeButton = new Button("Home");
-        Button profileButton = new Button("Profile");
-
-        String buttonStyle = "-fx-border-color: #31672aff; -fx-text-fill: #31672aff;"
-                           + " -fx-font-size: 16px; -fx-padding: 10px 20px;"
-                           + " -fx-background-radius: 5px; -fx-border-radius: 5px;";
-        searchButton.setStyle(buttonStyle);
-        homeButton.setStyle(buttonStyle);
-        profileButton.setStyle(buttonStyle);
-
-        bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
-
         // ---------------- Popup-boks (centreret indhold) ----------------
         VBox popupBox = new VBox(15);
         popupBox.setAlignment(Pos.CENTER);
         popupBox.setStyle(
             "-fx-padding: 20px;" +
-            "-fx-background-color: #b1d06a;" +     // grøn baggrund
-            "-fx-border-color: #6b4c2f;" +        // brun kant
+            "-fx-background-color: #dde5b6;" +     // grøn baggrund
+            "-fx-border-color: #6c584c;" +        // brun kant
             "-fx-border-width: 3px;" +
             "-fx-border-radius: 10px;" +
             "-fx-background-radius: 10px;"
@@ -56,7 +37,7 @@ public class createWishListFE {
         wishlistName.setMaxWidth(200); // begræns bredden for bedre centrering
 
         Button closeButton = new Button("X"); // Luk-knap
-        closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: #6b4c2f;"); // Stil for at gøre den mere synlig
+        closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: BLACK;"); // Stil for at gøre den mere synlig
 
         // HBox til at placere knappen i højre hjørne
         HBox closeWrapper = new HBox();
@@ -67,8 +48,10 @@ public class createWishListFE {
 
         Button createButton = new Button("Create wishlist");
         createButton.setStyle(
-            "-fx-background-color: #6b4c2f;" +
-            "-fx-text-fill: white;" +
+            "-fx-background-color: #a98467;" +
+            "-fx-text-fill: black;" +
+            "-fx-font-family: 'Elms sans';" +
+            "-fx-border-color: #6c584c;" +
             "-fx-font-size: 14px;" +
             "-fx-padding: 8px 20px;" +
             "-fx-background-radius: 5px;"
@@ -88,14 +71,15 @@ public class createWishListFE {
         // ---------------- Layout ----------------
         BorderPane layout = new BorderPane();
         layout.setCenter(centerWrapper);
-        layout.setBottom(bottombar);
+        layout.setBottom(BottomBarFactory.createBottomBar(stage));
 
-        Scene scene = new Scene(layout, 1197/3, 2256/3, Color.WHITE);
+        layout.setStyle("-fx-background-color: #F0EAD2; -fx-font-family: 'Elms sans';");// Light beige background
+        Scene scene = new Scene(layout, 1197/3, 2256/3);//1197/3 width and 2256/3 height of an iPhone 16
         stage.setScene(scene);
+        stage.setTitle("Create Wishlist");
         stage.show();
 
         // Navigation
-        homeButton.setOnAction(e -> new homePageFE().start(stage));
         closeButton.setOnAction(e -> addWishFE.showAddWishScene(stage)); // tilbage til Add Wish
     }
 }

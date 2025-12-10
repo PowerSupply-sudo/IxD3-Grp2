@@ -1,0 +1,64 @@
+/* --- 1. ROOT (SOLID COLOR ONLY) --- */
+.root {
+    -fx-background-color: #F0EAD2; 
+}
+
+/* --- 2. LABELS --- */
+.label-text {
+    -fx-text-fill: #6C584C;
+}
+
+/* --- 3. INPUT FIELDS (10px Radius) --- */
+.standard-text-field {
+    -fx-background-color: white;
+    -fx-border-color: #A98467;
+    -fx-border-width: 2px;
+    
+    /* 10px Radius */
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    
+    /* LOCKED PADDING */
+    -fx-padding: 10 15 10 15;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+    -fx-text-fill: #6C584C;
+}
+
+/* Hover/Focus State - Keeps dimensions locked */
+.standard-text-field:hover, .standard-text-field:focused {
+    -fx-border-color: #6C584C;
+    -fx-border-width: 2px;
+    -fx-padding: 10 15 10 15;
+    -fx-background-insets: 0;
+    -fx-background-color: white;
+}
+
+/* --- 4. BROWN BUTTON (10px Radius) --- */
+.brown-button {
+    -fx-background-color: #A98467;
+    -fx-text-fill: #F0EAD2; 
+    
+    /* 10px Radius */
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+    -fx-padding: 10 20;
+    -fx-border-color: #6C584C;
+    -fx-border-width: 2px;
+    -fx-background-insets: 0;
+}
+.brown-button:hover {
+    -fx-background-color: #967259;
+}
+
+/* --- 5. LINKS --- */
+.forgot-link {
+    -fx-text-fill: #6C584C;
+    -fx-font-size: 12px;
+    -fx-underline: false;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+}
