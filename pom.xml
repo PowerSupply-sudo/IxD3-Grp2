@@ -31,15 +31,22 @@
             <artifactId>javafx-base</artifactId>
             <version>25</version>
         </dependency>
-                <!-- Ikonli is responsible for icon libraries such as feather (see the thing below) -->
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.4</version>
+        </dependency>
+         <dependency>
             <groupId>org.kordamp.ikonli</groupId>
             <artifactId>ikonli-javafx</artifactId>
             <version>12.3.1</version>
         </dependency>
-
-        <!-- Feather Icons pack (clean, modern, go to https://feathericons.com/ to see icons. sorry for all the comments btw) -->
-        <dependency>
+         <dependency>
             <groupId>org.kordamp.ikonli</groupId>
             <artifactId>ikonli-feather-pack</artifactId>
             <version>12.3.1</version>

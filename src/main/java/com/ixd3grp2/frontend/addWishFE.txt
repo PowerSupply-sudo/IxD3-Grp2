@@ -32,7 +32,7 @@ public class addWishFE extends Application{
 
         // Add buttons to the bottom bar, and the bottons placed in the correct order, and the size of the buttons
         String buttonStyle = "-fx-border-color: #31672aff; -fx-text-fill: #31672aff; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-background-radius: 5px; -fx-border-radius: 5px;";
-        searchButton.setStyle(buttonStyle);
+        searchButton.setStyle(buttonStyle);  
         homeButton.setStyle(buttonStyle); 
         profileButton.setStyle(buttonStyle); 
 
