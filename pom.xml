@@ -31,6 +31,19 @@
             <artifactId>javafx-base</artifactId>
             <version>25</version>
         </dependency>
+                <!-- Ikonli is responsible for icon libraries such as feather (see the thing below) -->
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-javafx</artifactId>
+            <version>12.3.1</version>
+        </dependency>
+
+        <!-- Feather Icons pack (clean, modern, go to https://feathericons.com/ to see icons. sorry for all the comments btw) -->
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-feather-pack</artifactId>
+            <version>12.3.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -49,7 +62,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.ixd3grp2.main</mainClass> 
+                    <mainClass>com.ixd3grp2.frontend.infoAboutWishFE</mainClass> 
                 </configuration>
             </plugin>
         </plugins>

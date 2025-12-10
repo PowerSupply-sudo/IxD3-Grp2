@@ -1,0 +1,208 @@
+/* ============================================
+   TextArea Styling (fix bevel issue)
+   ============================================ */
+.text-area {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 8;
+}
+
+.text-area .content {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-padding: 8;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ============================================
+   DatePicker - WHITE background (it's an input!)
+   ============================================ */
+.date-picker {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-border-color: #6C584C;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+}
+
+.date-picker .text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #543E30;
+    -fx-prompt-text-fill: #8B7355;
+    -fx-background-radius: 8 0 0 8;
+    -fx-background-insets: 0;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #A98467;
+    -fx-background-radius: 0 8 8 0;
+    -fx-cursor: hand;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: #6C584C;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #FFFFFF;
+}
+
+/* ============================================
+   DatePicker - Calendar Popup
+   ============================================ */
+.date-picker-popup {
+    -fx-background-color: #F0EAD2;
+    -fx-border-color: #6C584C;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #A98467;
+    -fx-background-radius: 6 6 0 0;
+    -fx-padding: 8;
+}
+
+.date-picker-popup > .month-year-pane .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.date-picker-popup > .month-year-pane .button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.date-picker-popup > .month-year-pane .button:hover {
+    -fx-background-color: #6C584C;
+    -fx-background-radius: 4;
+}
+
+.date-picker-popup > .month-year-pane .left-button .left-arrow,
+.date-picker-popup > .month-year-pane .right-button .right-arrow {
+    -fx-background-color: #FFFFFF;
+}
+
+.date-picker-popup > .calendar-grid {
+    -fx-background-color: #F0EAD2;
+    -fx-padding: 8;
+}
+
+.date-picker-popup .day-name-cell {
+    -fx-text-fill: #6C584C;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: #A98467;
+    -fx-font-size: 10px;
+    -fx-padding: 4;
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #543E30;
+    -fx-padding: 4 8;
+    -fx-background-radius: 4;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #DDE5B6;
+}
+
+.date-picker-popup .day-cell:selected {
+    -fx-background-color: #A98467;
+    -fx-text-fill: #FFFFFF;
+}
+
+.date-picker-popup .day-cell.today {
+    -fx-background-color: #ADC178;
+    -fx-text-fill: #543E30;
+    -fx-border-color: #6C584C;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}
+
+.date-picker-popup .day-cell.previous-month,
+.date-picker-popup .day-cell.next-month {
+    -fx-text-fill: #A98467;
+    -fx-opacity: 0.5;
+}
+
+/* ============================================
+   Questionnaire Toggle Buttons
+   ============================================ */
+
+.question-button {
+    -fx-background-color: #A98467; /* Light Brown (inactive) */
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+    -fx-border-color: #543E30;
+    -fx-border-radius: 15;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+    -fx-min-width: 50px;
+}
+
+.question-button:hover {
+    -fx-background-color: #8B7355;
+}
+
+.question-button-selected {
+    -fx-background-color: #543E30; /* Dark Brown (active) */
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+    -fx-border-color: #3E2C22;
+    -fx-border-radius: 15;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-min-width: 50px;
+}
+
+
+/* ============================================
+   Custom Scrollbar for Questionnaire
+   ============================================ */
+
+/* The Container for the scrollbar */
+.questionnaire-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8px; /* Width of the entire scroll area */
+}
+
+/* The "track" (the background behind the moving bar) */
+.questionnaire-scroll .scroll-bar:vertical .track {
+    -fx-background-color: transparent; /* Invisible track */
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+/* The "thumb" (the moving part) */
+.questionnaire-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #3E4E28; /* Dark green/brown line */
+    -fx-background-radius: 5em;     /* Perfectly rounded ends */
+    -fx-background-insets: 0 3 0 3; /* Squeeze it to make it look like a thin line */
+}
+
+/* Hide the up/down arrows at the top/bottom of scrollbar */
+.questionnaire-scroll .scroll-bar:vertical .increment-button,
+.questionnaire-scroll .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-pref-height: 0;
+}
+
+.questionnaire-scroll .scroll-bar:vertical .increment-arrow,
+.questionnaire-scroll .scroll-bar:vertical .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
