@@ -13,9 +13,9 @@ public class BottomBarFactory {
         bottombar.setStyle("-fx-background-color: #6c584c; -fx-padding: 10px; -fx-min-height: 60px;");
         bottombar.setAlignment(Pos.CENTER);
 
-        Button searchButton = new Button("Search");
-        Button homeButton = new Button("Home");
-        Button profileButton = new Button("Profile");
+        Button searchButton = new Button("\uD83D\uDD0D");
+        Button homeButton = new Button("\uD83C\uDFE0");
+        Button profileButton = new Button("\uD83D\uDC64");
 
         String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #849a47; -fx-text-fill: black; "
                            + "-fx-font-size: 16px;-fx-font-family: 'Elms sans';"
@@ -27,6 +27,7 @@ public class BottomBarFactory {
 
         // ✅ Navigation indbygget
         homeButton.setOnAction(e -> new homePageFE().start(stage));
+        //profileButton.setOnAction(e -> new profilePageFE().start(stage));// Manlger Profile page fra Jens   
 
         bottombar.getChildren().addAll(searchButton, homeButton, profileButton);
         return bottombar;
