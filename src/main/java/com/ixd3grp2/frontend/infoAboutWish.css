@@ -137,3 +137,72 @@
     -fx-text-fill: #A98467;
     -fx-opacity: 0.5;
 }
+
+
+/* ============================================
+   Questionnaire Toggle Buttons
+   ============================================ */
+
+.question-button {
+    -fx-background-color: #A98467; /* Light Brown (inactive) */
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+    -fx-border-color: #543E30;
+    -fx-border-radius: 15;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+    -fx-min-width: 50px;
+}
+
+.question-button:hover {
+    -fx-background-color: #8B7355;
+}
+
+.question-button-selected {
+    -fx-background-color: #543E30; /* Dark Brown (active) */
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+    -fx-border-color: #3E2C22;
+    -fx-border-radius: 15;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-min-width: 50px;
+}
+
+/* ============================================
+   Custom Scrollbar for Questionnaire
+   ============================================ */
+
+/* The Container for the scrollbar */
+.questionnaire-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8px; /* Width of the entire scroll area */
+}
+
+/* The "track" (the background behind the moving bar) */
+.questionnaire-scroll .scroll-bar:vertical .track {
+    -fx-background-color: transparent; /* Invisible track */
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+/* The "thumb" (the moving part) */
+.questionnaire-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #3E4E28; /* Dark green/brown line */
+    -fx-background-radius: 5em;     /* Perfectly rounded ends */
+    -fx-background-insets: 0 3 0 3; /* Squeeze it to make it look like a thin line */
+}
+
+/* Hide the up/down arrows at the top/bottom of scrollbar */
+.questionnaire-scroll .scroll-bar:vertical .increment-button,
+.questionnaire-scroll .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-pref-height: 0;
+}
+
+.questionnaire-scroll .scroll-bar:vertical .increment-arrow,
+.questionnaire-scroll .scroll-bar:vertical .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
