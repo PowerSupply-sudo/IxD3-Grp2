@@ -1,4 +1,5 @@
 package com.ixd3grp2.frontend;
+import com.ixd3grp2.frontend.userManagement.profilePageFE;
 
 
 import javafx.application.Application;
@@ -37,10 +38,12 @@ public class homePageFE extends Application{
         String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #31672aff; -fx-text-fill: #BLACK; "
                         + "-fx-font-size: 16px;-fx-font-family: 'Elms sans';" 
                         + "-fx-padding: 10px 20px; "
-                        + "-fx-background-radius: 5px; -fx-border-radius: 5px;";
+                        + "-fx-background-radius: 5px; -fx-border-radius: 5px;"
+                        + "-fx-cursor: hand;";
         searchButton.setStyle(buttonStyle);
         homeButton.setStyle(buttonStyle);
         profileButton.setStyle(buttonStyle);
+        profileButton.setOnAction(e -> profilePageFE.showProfileScene(stage));
 
         //---------------------------- Add Buttons to Bottom Bar ----------------------------
         // Add buttons to the bottom bar        
@@ -98,7 +101,8 @@ public class homePageFE extends Application{
                                 +"-fx-border-color: BLACK;"
                                 +"-fx-font-size: 16px;-fx-font-family: 'Elms sans'; "
                                 +"-fx-padding: 10px 20px; -fx-border-radius: 5px;"
-                                +"-fx-background-radius: 5px;"); // Styling for the button
+                                +"-fx-background-radius: 5px;"
+                                +"-fx-cursor: hand;"); // Styling for the button
         
         // Gør knappen klikbar — åbn addWishFE som et modulært vindue
         addWishButton.setOnAction(e -> addWishFE.showAddWishScene(stage));
@@ -124,7 +128,8 @@ public class homePageFE extends Application{
         Button wishListsButton = new Button("Wish Lists");
         wishListsButton.setStyle("-fx-background-color: #DDE5B6; -fx-text-fill: BLACK; "
             + "-fx-border-color: #31672aff; -fx-font-size: 16px; -fx-font-family: 'Elms sans'; -fx-padding: 10px 20px; "
-            + "-fx-border-radius: 5px; -fx-background-radius: 5px;");
+            + "-fx-border-radius: 5px; -fx-background-radius: 5px;"
+            + "-fx-cursor: hand;");
         wishListsButton.setOnAction(e -> wishListsFE.showWishListsScene(stage));
 
         // VBox til knappen (placeret lige over bottom bar)

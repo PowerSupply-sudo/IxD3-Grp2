@@ -1,4 +1,5 @@
 package com.ixd3grp2.frontend;
+import com.ixd3grp2.frontend.userManagement.profilePageFE;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -20,10 +21,12 @@ public class BottomBarFactory {
         String buttonStyle = "-fx-background-color: #DDE5B6; -fx-border-color: #849a47; -fx-text-fill: black; "
                            + "-fx-font-size: 16px;-fx-font-family: 'Elms sans';"
                            + "-fx-padding: 10px 20px; "
-                           + "-fx-background-radius: 5px; -fx-border-radius: 5px;";
+                           + "-fx-background-radius: 5px; -fx-border-radius: 5px;"
+                           + "-fx-cursor: hand;";
         searchButton.setStyle(buttonStyle);
         homeButton.setStyle(buttonStyle);
         profileButton.setStyle(buttonStyle);
+        profileButton.setOnAction(e -> profilePageFE.showProfileScene(stage));
 
         // ✅ Navigation indbygget
         homeButton.setOnAction(e -> new homePageFE().start(stage));

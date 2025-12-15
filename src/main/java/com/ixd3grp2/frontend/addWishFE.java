@@ -37,7 +37,8 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
             "-fx-border-color: #6c584c;" +
             "-fx-font-size: 12px;" +
             "-fx-padding: 8px 20px;" +
-            "-fx-background-radius: 5px;"
+            "-fx-background-radius: 5px;" +
+            "-fx-cursor: hand;"
         );// Sætter stil for knappen med baggrundsfarve, tekstfarve, skrifttype, kantfarve, skriftstørrelse, polstring og runding af kanter
 
         Button newWishlist = new Button("New wishlist");// Opretter en knap til at oprette en ny ønskeliste
@@ -48,7 +49,8 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
             "-fx-border-color: #6c584c;" +
             "-fx-font-size: 12px;" +
             "-fx-padding: 8px 20px;" +
-            "-fx-background-radius: 5px;"
+            "-fx-background-radius: 5px;" +
+            "-fx-cursor: hand;"
         );// Sætter stil for knappen med baggrundsfarve, tekstfarve, skrifttype, kantfarve, skriftstørrelse, polstring og runding af kanter
 
         // Navigationshandlinger for knapperne
@@ -64,7 +66,8 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
         wishListButtons.setStyle(
             "-fx-font-family: 'Elms sans';" +
             "-fx-font-size: 14px;"+
-            "-fx-text-fill: black;"
+            "-fx-text-fill: black;" +
+            "-fx-cursor: hand;"
         );// Sætter stil for ønskelisteknapperne med skrifttype og skriftstørrelse
 
         
@@ -85,7 +88,7 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
 
         // Exit-knappen(X) i øverste højre hjørne af boksen
         Button closeButton = new Button("X");// Opretter en luk-knap
-        closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: BLACK;");// Gør luk-knappen mere synlig med fed skrift og sort farve
+        closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: BLACK; -fx-cursor: hand;");// Gør luk-knappen mere synlig med fed skrift og sort farve
         closeButton.setOnAction(e -> new homePageFE().start(stage));// Når luk-knappen klikkes, navigeres tilbage til homePageFE
 
         HBox closeWrapper = new HBox();// Opretter en horisontal boks til at placere luk-knappen

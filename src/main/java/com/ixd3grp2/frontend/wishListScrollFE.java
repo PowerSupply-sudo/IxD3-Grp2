@@ -42,9 +42,15 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
                 "-fx-border-color: #6c584c;" +
                 "-fx-border-width: 2px;" +
                 "-fx-border-radius: 8px;" +
-                "-fx-background-radius: 8px;"
+                "-fx-background-radius: 8px;" +
+                "-fx-cursor: hand;"
             );
             item.setMaxWidth(280);// Set a max width for each wishlist item
+
+            //goes to the next page when clicked
+            item.setOnMouseClicked(e -> {
+                new infoAboutWishFE().start(stage); 
+            });
 
             javafx.scene.control.Label name = new javafx.scene.control.Label("Wishlist name goes here...");// Wishlist name label
             name.setStyle("-fx-font-size: 12px; -fx-text-fill: black;");// Wishlist name label style
@@ -74,7 +80,7 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
 
         // Close-knappen(X) i øverste højre hjørne af boksen
         Button closeButton = new Button("X");// Opretter en luk-knap
-        closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: BLACK;");// Gør luk-knappen mere synlig med fed skrift og sort farve
+        closeButton.setStyle("-fx-font-weight: bold; -fx-text-fill: BLACK; -fx-cursor: hand;");// Gør luk-knappen mere synlig med fed skrift og sort farve
         closeButton.setOnAction(e -> addWishFE.showAddWishScene(stage));// Når luk-knappen klikkes, navigeres tilbage til addWishFE
         
         HBox closeWrapper = new HBox();// Opretter en horisontal boks til at placere luk-knappen
@@ -86,7 +92,7 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
         // (Bekræft-knappen skal implementeres her)
 
         Button confirmButton = new Button("Confirm");// Opretter en bekræft-knap
-        confirmButton.setOnAction(e -> {new homePageFE().start(stage);});// Udskriver en besked i konsollen
+        confirmButton.setOnAction(e -> {new infoAboutWishFE().start(stage);});// Udskriver en besked i konsollen
             // Her kan yderligere logik til bekræftelse implementeres
         confirmButton.setStyle(// Stil for bekræft-knappen
             "-fx-background-color: #6b4c2f;" +
@@ -94,7 +100,8 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
             "-fx-font-size: 16px;" +
             "-fx-font-weight: bold;" +
             "-fx-padding: 10px 30px;" +
-            "-fx-background-radius: 8px;"
+            "-fx-background-radius: 8px;" +
+            "-fx-cursor: hand;"
         );// Sætter stil for bekræft-knappen
         
     

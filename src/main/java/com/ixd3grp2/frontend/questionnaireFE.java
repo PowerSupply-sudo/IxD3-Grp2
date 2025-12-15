@@ -32,7 +32,7 @@ public class questionnaireFE {
 
         // Root container (The green card)
         VBox root = new VBox();
-        root.setStyle("-fx-background-color: #718355; -fx-background-radius: 15;"); 
+        root.setStyle("-fx-background-color: #718355; -fx-background-radius: 15; -fx-font-family: 'Elms sans';");
         root.setMaxWidth(320);
         root.setMaxHeight(500);
         root.setPadding(new Insets(15, 0, 20, 0));
@@ -41,7 +41,7 @@ public class questionnaireFE {
         
         // 1. The Title
         Label title = new Label("Questionnaire for\nwish");
-        title.setStyle("-fx-font-family: 'Finger Paint', cursive; -fx-font-size: 20px; -fx-text-fill: #2b2b2b; -fx-font-weight: bold;");
+        title.setStyle("-fx-font-family: 'Elms sans'; -fx-font-size: 20px; -fx-text-fill: #2b2b2b; -fx-font-weight: bold;");
         title.setTextAlignment(TextAlignment.CENTER);
 
         // 2. The Close (X) Button
@@ -98,7 +98,7 @@ public class questionnaireFE {
         // Wrapper to center the card on screen
         VBox wrapper = new VBox(root);
         wrapper.setAlignment(Pos.CENTER);
-        wrapper.setStyle("-fx-background-color: rgba(0,0,0,0.4);"); 
+        wrapper.setStyle("-fx-background-color: rgba(0,0,0,0.6); -fx-background-radius: 12;"); // Semi-transparent dark background
         
         // Click outside to close
         wrapper.setOnMouseClicked(e -> {
