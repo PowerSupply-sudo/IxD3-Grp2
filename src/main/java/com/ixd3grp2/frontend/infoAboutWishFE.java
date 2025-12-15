@@ -55,7 +55,12 @@ public class infoAboutWishFE extends Application {
         Button closeButton = new Button();
         closeButton.setGraphic(closeIcon);
         closeButton.setStyle("-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 5;");
-        closeButton.setOnAction(e -> onClose.run());
+        closeButton.setOnAction(e -> {
+            // Get the stage from the button itself
+            Stage currentStage = (Stage) closeButton.getScene().getWindow();
+            new homePageFE().start(currentStage);
+            onClose.run();
+        });
         
         HBox topBar = new HBox(closeButton);
         topBar.setAlignment(Pos.CENTER_RIGHT);
@@ -141,7 +146,10 @@ public class infoAboutWishFE extends Application {
         Button saveButton = new Button("Save wish");
         saveButton.setStyle("-fx-background-color: #A98467; -fx-text-fill: #FFFFFF; -fx-font-size: 14px; -fx-background-radius: 8; -fx-border-color: #6C584C; -fx-border-radius: 8; -fx-padding: 10 20; -fx-cursor: hand;");
         saveButton.setOnAction(e -> {
-            System.out.println("Save wish clicked!");
+            // Get the stage from the button itself
+            Stage currentStage = (Stage) saveButton.getScene().getWindow();
+            new homePageFE().start(currentStage);
+            
             onClose.run();
         });
         
@@ -172,20 +180,29 @@ public class infoAboutWishFE extends Application {
         return rootStack;
     }
 
-    @Override
+@Override
     public void start(Stage stage) {
-        Pane fakeHomePage = new Pane();
-        fakeHomePage.setStyle("-fx-background-color: #F0EAD2;");
+        // 1. Create the Background Layout (Changed from Pane to BorderPane)
+        BorderPane backgroundLayout = new BorderPane();
+        backgroundLayout.setStyle("-fx-background-color: #F0EAD2;");
         
+        // 2. Add the Bottom Bar to the background
+        backgroundLayout.setBottom(BottomBarFactory.createBottomBar(stage));
+
+        // 3. Create the Root StackPane (Layers: Background -> Popup)
         StackPane root = new StackPane();
         root.setAlignment(Pos.CENTER);
-        root.getChildren().add(fakeHomePage);
         
+        // Add the background layout first (so it's at the back)
+        root.getChildren().add(backgroundLayout);
+        
+        // 4. Create and add the Popup
         Pane popup = createContent(() -> System.out.println("Close button clicked!"));
-        
         root.getChildren().add(popup);
         
+        // 5. Scene setup
         Scene scene = new Scene(root, SCREEN_WIDTH, SCREEN_HEIGHT);
+        // Note: Make sure your CSS file exists, or comment this line out if it crashes
         scene.getStylesheets().add(getClass().getResource("infoAboutWish.css").toExternalForm());
         
         stage.setTitle("Info About Wish + Questionnaire");

@@ -1,3 +1,7 @@
+.root {
+    -fx-font-family: 'Elms sans';
+}
+
 /* ============================================
    TextArea Styling (fix bevel issue)
    ============================================ */
