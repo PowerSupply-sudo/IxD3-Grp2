@@ -52,7 +52,7 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
             javafx.scene.control.Label count = new javafx.scene.control.Label("4"); // Item count label
             count.setStyle("-fx-font-size: 14px; -fx-text-fill: black;");// count label style
 
-            javafx.scene.control.Label emojiLabel = new javafx.scene.control.Label("🎁"); // Gift emoji with count
+            javafx.scene.control.Label emojiLabel = new javafx.scene.control.Label("\uD83C\uDF81"); // Gift emoji with count
             emojiLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: white;");// Gift emoji with count
 
             Button delete = new Button("X");// Delete button
@@ -78,7 +78,7 @@ public class wishListScrollFE extends Application {// Klasse til at oprette "Wis
         closeButton.setOnAction(e -> addWishFE.showAddWishScene(stage));// Når luk-knappen klikkes, navigeres tilbage til addWishFE
         
         HBox closeWrapper = new HBox();// Opretter en horisontal boks til at placere luk-knappen
-        closeWrapper.setAlignment(Pos.TOP_RIGHT);// Justerer luk-knappen til højre i bok
+        closeWrapper.setAlignment(Pos.TOP_RIGHT);// Justerer luk-knappen til højre i boksen
         closeWrapper.setMaxWidth(Double.MAX_VALUE);// Gør boksen så bred som muligt for at sikre at knappen er i højre hjørne
         closeWrapper.getChildren().add(closeButton);// Tilføjer luk-knappen til boksen
 

@@ -59,7 +59,7 @@ public class addWishFE {// Klasse til at oprette "Add Wish"-siden i frontend
 
 
         HBox wishListButtons = new HBox(10);// Opretter en horisontal boks til ønskelisteknapperne med 10px mellemrum
-        wishListButtons.setAlignment(Pos.CENTER);// Centrerer ønskelisteknapperne i
+        wishListButtons.setAlignment(Pos.CENTER);// Centrerer ønskelisteknapperne 
         wishListButtons.getChildren().addAll(addToWishlist, newWishlist);// Tilføjer ønskelisteknapperne til boksen
         wishListButtons.setStyle(
             "-fx-font-family: 'Elms sans';" +

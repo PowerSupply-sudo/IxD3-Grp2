@@ -47,13 +47,13 @@ public class listOfWishesFE {
         // Popup logik direkte i knappen
         editButton.setOnAction(e -> {
             Stage editStage = new Stage();
-            editStage.setTitle("Rediger ønskeliste");
+            editStage.setTitle("Edit wish list");
 
-            Label editLabel = new Label("Rediger navn på ønskelisten:");
+            Label editLabel = new Label("Edit wish list name:");
             TextField nameField = new TextField(title.getText());
 
-            Button saveButton = new Button("Gem ændringer");
-            Button deleteButton = new Button("Slet ønskeliste");
+            Button saveButton = new Button("Save changes");
+            Button deleteButton = new Button("Delete wish list");
 
             saveButton.setStyle("-fx-background-color: #31672aff; -fx-text-fill: white;");
             deleteButton.setStyle("-fx-background-color: #a98467; -fx-text-fill: white;");
@@ -66,7 +66,7 @@ public class listOfWishesFE {
             deleteButton.setOnAction(ev -> {
                 wishListsFE.showWishListsScene(stage); // tilbage til oversigten
                 editStage.close();
-                System.out.println("Ønskeliste #" + (listIndex + 1) + " slettet.");
+                System.out.println("Wish list #" + (listIndex + 1) + " deleted.");
             });
 
             HBox buttonBar = new HBox(15);
@@ -178,7 +178,7 @@ public class listOfWishesFE {
                 itemBox.getChildren().addAll(timeLabel, itemName, deleteButton);// Add time, name, and delete button to the item box
                 deleteButton.setOnAction(e -> {
                 grid.getChildren().remove(itemBox);// Remove the item from the grid when clicked
-                System.out.println("Ønske '" + item.getName() + "' slettet.");// Print confirmation in console
+                System.out.println("Wish '" + item.getName() + "' Deleted.");// Print confirmation in console
                  });
             } else {
                 itemBox.getChildren().addAll(timeLabel, itemName);// If not expired, only show time and name (no delete button)
