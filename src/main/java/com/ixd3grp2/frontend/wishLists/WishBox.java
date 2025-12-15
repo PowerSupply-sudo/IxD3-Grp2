@@ -1,7 +1,7 @@
 package com.ixd3grp2.frontend.wishLists;
 
 // Backend class for individual wishes, tilsvarende til wishViewFE, som håndterer frontend visningen af et ønske    
-// når det er blevet valgt fra wishListsBoxes oversigten, så kort sagt en model klasse for et ønske, med attributter som navn og tid tilbage.
+//når det er blevet valgt fra wishListsBoxes oversigten, så kort sagt en model klasse for et ønske, med attributter som navn og tid tilbage.
 // kort sagt en simpel POJO (Plain Old Java Object) klasse. som repræsenterer et ønske i ønskelisten, når en bruger vil se detaljer om et specifikt ønske.
 public class WishBox {
     private String name;
