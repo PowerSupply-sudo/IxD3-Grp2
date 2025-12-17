@@ -30,16 +30,6 @@
     -fx-text-fill: #6C584C;
 }
 
-/* Hover/Focus State - Keeps dimensions exactly the same to stop shifting */
-.input-box:hover, .input-box:focused-within, 
-.standard-text-field:hover, .standard-text-field:focused {
-    -fx-border-color: #6C584C;
-    -fx-border-width: 2px;
-    -fx-padding: 10 15 10 15; 
-    -fx-background-insets: 0;
-    -fx-background-color: white;
-}
-
 /* --- 4. INNER TEXT --- */
 .inner-text-field {
     -fx-background-color: transparent;
@@ -60,9 +50,6 @@
     -fx-padding: 0 5 0 0;
     -fx-cursor: hand;
 }
-.arrow-icon:hover {
-    -fx-text-fill: #6C584C;
-}
 
 /* --- 6. LINKS --- */
 .forgot-link {
@@ -82,10 +69,6 @@
     -fx-cursor: hand;
     -fx-padding: 10 15 10 15;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
-}
-
-.login-button:hover {
-    -fx-background-color: #A98467; /* Lighter Brown on hover */
 }
 
 .login-button:pressed {

@@ -25,15 +25,6 @@
     -fx-text-fill: #6C584C;
 }
 
-/* Hover/Focus State - Keeps dimensions locked */
-.standard-text-field:hover, .standard-text-field:focused {
-    -fx-border-color: #6C584C;
-    -fx-border-width: 2px;
-    -fx-padding: 10 15 10 15;
-    -fx-background-insets: 0;
-    -fx-background-color: white;
-}
-
 /* --- 4. BROWN BUTTON (10px Radius) --- */
 .brown-button {
     -fx-background-color: #A98467;
@@ -49,9 +40,6 @@
     -fx-border-color: #6C584C;
     -fx-border-width: 2px;
     -fx-background-insets: 0;
-}
-.brown-button:hover {
-    -fx-background-color: #967259;
 }
 
 /* --- 5. LINKS --- */
