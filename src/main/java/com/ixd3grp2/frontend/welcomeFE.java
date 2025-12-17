@@ -1,5 +1,6 @@
 package com.ixd3grp2.frontend;
 
+import com.ixd3grp2.DBConnection;
 import com.ixd3grp2.frontend.userManagement.loginPageFE;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -8,12 +9,24 @@ import javafx.scene.Scene;
 //import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import java.io.File;
+import java.sql.SQLException;
 
 public class welcomeFE extends Application {
 
     // Global dimensions (approx 400x750)
     public static final double WIDTH = 1197.0 / 3;
     public static final double HEIGHT = 2256.0 / 3;
+
+    private DBConnection db;
+
+    public welcomeFE(){
+        try {
+            db = DBConnection.getInstance();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
 
     @Override
     public void start(Stage stage) {
@@ -25,7 +38,7 @@ public class welcomeFE extends Application {
             new homePageFE().start(stage); 
         } else {
             // 2. Not logged in: Load Login Page
-            loginPageFE login = new loginPageFE();
+            loginPageFE login = new loginPageFE(db);
             Scene loginScene = login.getScene(stage);
             
             // 3. Set the scene onto the stage

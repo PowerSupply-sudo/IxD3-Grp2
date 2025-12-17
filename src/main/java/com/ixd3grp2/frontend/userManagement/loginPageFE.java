@@ -1,5 +1,8 @@
 package com.ixd3grp2.frontend.userManagement;
 
+import java.sql.SQLException;
+
+import com.ixd3grp2.DBConnection;
 import com.ixd3grp2.frontend.homePageFE;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -12,6 +15,11 @@ import javafx.stage.Stage;
 public class loginPageFE {
 
     private static final String REGULAR_FONT_PATH = "/com/ixd3grp2/frontend/resources/fonts/ElmsSans-Regular.ttf";
+    
+    private DBConnection db;
+    public loginPageFE(DBConnection db){
+        this.db = db;
+    }
 
     public Scene getScene(Stage stage) {
 
@@ -47,7 +55,17 @@ public class loginPageFE {
         btnLogin.setMaxWidth(Double.MAX_VALUE/2); // Fill width
         btnLogin.getStyleClass().add("login-button");
         btnLogin.setOnAction(e -> {
-            new homePageFE().start(stage);
+            var email = emailInput.getText();
+            var password = passInput.getText();
+            try {
+                if (db.login(email, password)){
+                    new homePageFE().start(stage);
+                } else {
+                    System.out.println("user not real :unicorn:");
+                }
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
         });
 
         // 6. SECTION SPACER (Moves Sign Up down)
@@ -61,7 +79,7 @@ public class loginPageFE {
 
         // Sign up keeps the arrow style as requested
         HBox signupContainer = createArrowInputField("example@gmail.com", false, regularFont, () -> {
-            registerPageFE register = new registerPageFE();
+            registerPageFE register = new registerPageFE(db);
             stage.setScene(register.getScene(stage));
         });
 
@@ -90,7 +108,7 @@ public class loginPageFE {
         return scene;
     }
 
-    // --- HELPERS ---
+    // HELPERS
     private Font loadCustomFont(String path, double size) {
         try {
             if (getClass().getResourceAsStream(path) == null) return null;

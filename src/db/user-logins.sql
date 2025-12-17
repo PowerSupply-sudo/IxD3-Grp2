@@ -9,3 +9,14 @@ CREATE TABLE IF NOT EXISTS `users` (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO users (
+    username,
+    password
+) VALUES
+
+    ('Nicklas', '1234'),
+    ('Sarah', '4321'),
+    ('Jens', 'nej');
+
+    COMMIT;

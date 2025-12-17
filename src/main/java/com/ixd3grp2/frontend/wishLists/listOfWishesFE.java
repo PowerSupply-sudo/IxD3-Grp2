@@ -21,11 +21,10 @@ import javafx.scene.layout.GridPane;
 
 public class listOfWishesFE {
 
-    // ✅ Statisk metode til at vise en ønskeliste
+    // Static method for displaying wishlists
     public static void showListOfWishesScene(Stage stage, int listIndex) {
 
-        // ---------------- Topbar med back, title og edit ----------------
-        Button backButton = new Button("\u2190"); // venstre hjørne
+        Button backButton = new Button("\u2190"); 
         backButton.setOnAction(e -> wishListsFE.showWishListsScene(stage));
         backButton.setFont(Font.font("Elms sans", 16));
         backButton.setStyle(
@@ -33,18 +32,17 @@ public class listOfWishesFE {
             "-fx-padding: 6px 15px; -fx-background-radius: 5px; -fx-border-radius: 5px;"
         );
 
-        Label title = new Label("Wish List #" + (listIndex + 1)); // midten
+        Label title = new Label("Wish List #" + (listIndex + 1));
         title.setStyle("-fx-font-family: 'Elms sans'; -fx-font-size: 18px; -fx-text-fill: #31672aff;");
 
-        // 👉 Edit-knap med popup
-        Button editButton = new Button("\u270E"); // højre hjørne
+
+        Button editButton = new Button("\u270E");
         editButton.setStyle(
             "-fx-background-color: #DDE5B6; -fx-border-color: #849a47; -fx-text-fill: black; " +
             "-fx-font-size: 20px; -fx-font-family: 'Elms sans'; " +
             "-fx-padding: 6px 12px; -fx-background-radius: 5px; -fx-border-radius: 5px;"
         );
 
-        // Popup logik direkte i knappen
         editButton.setOnAction(e -> {
             Stage editStage = new Stage();
             editStage.setTitle("Edit wish list");
@@ -59,12 +57,12 @@ public class listOfWishesFE {
             deleteButton.setStyle("-fx-background-color: #a98467; -fx-text-fill: white;");
 
             saveButton.setOnAction(ev -> {
-                title.setText(nameField.getText()); // opdaterer titlen
-                editStage.close();                  // lukker popup
+                title.setText(nameField.getText());
+                editStage.close();
             });
 
             deleteButton.setOnAction(ev -> {
-                wishListsFE.showWishListsScene(stage); // tilbage til oversigten
+                wishListsFE.showWishListsScene(stage);
                 editStage.close();
                 System.out.println("Wish list #" + (listIndex + 1) + " deleted.");
             });
@@ -83,7 +81,6 @@ public class listOfWishesFE {
             editStage.show();
         });
 
-        // ---------------- Topbar layout ----------------
         Region leftSpacer = new Region();
         Region rightSpacer = new Region();
         HBox.setHgrow(leftSpacer, javafx.scene.layout.Priority.ALWAYS);
@@ -95,7 +92,6 @@ public class listOfWishesFE {
         topBar.setSpacing(10);
         topBar.getChildren().addAll(backButton, leftSpacer, title, rightSpacer, editButton);
 
-        // ---------------- CenterContent med grid ----------------
         VBox centerContent = new VBox();
         centerContent.setAlignment(Pos.CENTER);
         centerContent.setSpacing(20);
@@ -112,15 +108,15 @@ public class listOfWishesFE {
         scrollPane.setFitToWidth(true);   // gør at grid fylder hele bredden
         scrollPane.setFitToHeight(false);  // gør at grid fylder hele højden
         scrollPane.setPannable(true);     // tillader at man kan scrolle med musen
-        scrollPane.setStyle("-fx-background: #f0ead2; -fx-background-color: #f0ead2;"); // gør baggrunden gennemsigtig
+        scrollPane.setStyle("-fx-background: #f0ead2; -fx-background-color: #f0ead2;"); // Makes the background transparent
 
         // Kun lodret scrollbar
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);   // ❌ ingen vandret scrollbar
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED); // ✅ lodret scrollbar når nødvendigt
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
         scrollPane.setStyle("-fx-background: #F0EAD2; -fx-background-color: #F0EAD2;");
 
-        // 👉 Demo-data med backend-klassen listOfWishesBoxes
+        // Demo-data med backend-klassen listOfWishesBoxes
         List<listOfWishesBoxes> demoWishes = Arrays.asList(
             new listOfWishesBoxes("Noise-cancelling headphones", "30d 14h"),
             new listOfWishesBoxes("Minimalist backpack", "25d 6h"),
@@ -163,7 +159,7 @@ public class listOfWishesFE {
             itemName.setFont(Font.font("Elms sans", 10));
             itemName.setStyle("-fx-text-fill: black;");
 
-            // 👉 Kun vis deleteButton hvis tiden er udløbet
+            // Kun vis deleteButton hvis tiden er udløbet
             if (isExpired(item.getTimeLeft())) {
                 Button deleteButton = new Button("Bye \uD83D\uDDD1");
                 deleteButton.setFont(Font.font("Elms sans", 12));
@@ -200,11 +196,10 @@ public class listOfWishesFE {
             grid.add(itemBox, col, row);
         }
 
-        // ---------------- Layout ----------------
        BorderPane layout = new BorderPane();
        layout.setCenter(scrollPane);
        layout.setTop(topBar);
-       layout.setBottom(BottomBarFactory.createBottomBar(stage)); // ✅ matcher signaturen
+       layout.setBottom(BottomBarFactory.createBottomBar(stage));
        layout.setStyle("-fx-background-color: #F0EAD2; -fx-font-family: 'Elms sans';");
 
         Scene scene = new Scene(layout, 1197 / 3, 2256 / 3);// Højden og bredden på en iPhone 16
