@@ -5,7 +5,7 @@ services:
     container_name: wishlistapp-db
     restart: unless-stopped
     ports:
-      - "3306:3306"
+      - "3000:3306"
     environment:
       # For local development only. Move secrets to a .env or Docker secrets for production.
       MYSQL_ROOT_PASSWORD: example_root_password
