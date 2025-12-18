@@ -77,6 +77,11 @@ public class loginPageFE {
         lblOrSignup.setFont(regularFont);
         lblOrSignup.getStyleClass().add("label-text");
 
+        // FIX: Use setOnMouseClicked instead of setOnAction
+        lblOrSignup.setOnMouseClicked(e -> {
+            new homePageFE().start(stage);
+        });
+
         // Sign up keeps the arrow style as requested
         HBox signupContainer = createArrowInputField("example@gmail.com", false, regularFont, () -> {
             registerPageFE register = new registerPageFE(db);

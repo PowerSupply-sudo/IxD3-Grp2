@@ -15,7 +15,7 @@ public class DBConnection {
             String host = System.getenv().getOrDefault("DB_HOST", "localhost");
             String port = System.getenv().getOrDefault("DB_PORT", "3306");
             String db = System.getenv().getOrDefault("DB_NAME", "wishlistapp");
-            url = String.format("jdbc:mysql://%s:%s/%s?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&protocol=TCP", host, port, db);
+            url = String.format("jdbc:mysql://%s:%s/%s?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8", host, port, db);
         }
 
         String user = System.getenv().getOrDefault("DB_USER", "wishlistuser");
