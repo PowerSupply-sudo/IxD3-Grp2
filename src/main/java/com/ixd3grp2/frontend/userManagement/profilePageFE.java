@@ -37,9 +37,8 @@ public class profilePageFE extends Application {
         BorderPane layout = new BorderPane();
         layout.setStyle("-fx-background-color: " + BG_BEIGE + "; -fx-font-family: 'Elms sans';");
 
-        // -----------------------------------------
         // 2. TOP SECTION (Avatar + Name)
-        // -----------------------------------------
+
         VBox topSection = new VBox(10);
         topSection.setAlignment(Pos.CENTER);
         topSection.setPadding(new Insets(40, 0, 0, 0)); // Padding from top
@@ -82,10 +81,8 @@ public class profilePageFE extends Application {
         topSection.getChildren().addAll(avatarContainer, nameBox, divider);
         layout.setTop(topSection);
 
-
-        // -----------------------------------------
         // 3. CENTER SECTION (Buy List Grid)
-        // -----------------------------------------
+
         VBox centerContent = new VBox(15);
         centerContent.setPadding(new Insets(10, 20, 0, 20));
 
@@ -138,24 +135,18 @@ public class profilePageFE extends Application {
         layout.setCenter(centerContent);
 
 
-        // -----------------------------------------
         // 4. BOTTOM SECTION (Navigation)
-        // -----------------------------------------
         layout.setBottom(BottomBarFactory.createBottomBar(stage));
 
 
-        // -----------------------------------------
         // SCENE SETUP
-        // -----------------------------------------
         Scene scene = new Scene(layout, 1197.0 / 3, 2256.0 / 3);
         stage.setTitle("Profile");
         stage.setScene(scene);
         stage.show();
     }
 
-    // -----------------------------------------
     // HELPER METHODS
-    // -----------------------------------------
 
     // Creates the individual green cards
     private VBox createItemCard(String itemName, Pane parentContainer) {

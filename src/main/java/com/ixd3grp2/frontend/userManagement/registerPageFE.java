@@ -1,5 +1,6 @@
 package com.ixd3grp2.frontend.userManagement;
 
+import com.ixd3grp2.DBConnection;
 import com.ixd3grp2.auth.AuthService;
 import com.ixd3grp2.auth.RegistrationResult;
 import javafx.geometry.Insets;
@@ -14,6 +15,11 @@ public class registerPageFE {
 
     private static final String REGULAR_FONT_PATH = "/com/ixd3grp2/frontend/resources/fonts/ElmsSans-Regular.ttf";
     private AuthService authService;
+
+    private DBConnection db;
+    public registerPageFE(DBConnection db){
+        this.db = db;
+    }
 
     public Scene getScene(Stage stage) {
         authService = new AuthService();
@@ -89,7 +95,7 @@ public class registerPageFE {
                     try {
                         Thread.sleep(1500);
                         javafx.application.Platform.runLater(() -> {
-                            loginPageFE login = new loginPageFE();
+                            loginPageFE login = new loginPageFE(db);
                             stage.setScene(login.getScene(stage));
                         });
                     } catch (InterruptedException ex) {
@@ -108,7 +114,7 @@ public class registerPageFE {
         backLink.setFont(smallFont);
         backLink.getStyleClass().add("forgot-link");
         backLink.setOnAction(e -> {
-            loginPageFE login = new loginPageFE();
+            loginPageFE login = new loginPageFE(db);
             stage.setScene(login.getScene(stage));
         });
 

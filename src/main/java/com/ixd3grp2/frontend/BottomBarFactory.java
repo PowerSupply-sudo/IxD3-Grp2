@@ -4,11 +4,11 @@ import com.ixd3grp2.frontend.userManagement.profilePageFE;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;              // ✅ vigtigt import
+import javafx.stage.Stage;
 
 public class BottomBarFactory {
 
-    public static HBox createBottomBar(Stage stage) { // ✅ signatur med Stage
+    public static HBox createBottomBar(Stage stage) {
         HBox bottombar = new HBox();
         bottombar.setSpacing(40);
         bottombar.setStyle("-fx-background-color: #6c584c; -fx-padding: 10px; -fx-min-height: 60px;");
