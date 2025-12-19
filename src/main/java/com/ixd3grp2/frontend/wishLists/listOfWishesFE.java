@@ -117,6 +117,8 @@ public class listOfWishesFE {
         scrollPane.setStyle("-fx-background: #F0EAD2; -fx-background-color: #F0EAD2;");
 
         // Demo-data med backend-klassen listOfWishesBoxes
+        // (demo-data kan slettes hvis vi for vores database til at virke når vi tilføjer ny ønsker,
+        // for så burde der ikke være brug for dem, 7,9,13 knock on wood, bank, bank, bank)
         List<listOfWishesBoxes> demoWishes = Arrays.asList(
             new listOfWishesBoxes("Noise-cancelling headphones", "30d 14h"),
             new listOfWishesBoxes("Minimalist backpack", "25d 6h"),
@@ -173,7 +175,7 @@ public class listOfWishesFE {
                 itemBox.getChildren().addAll(timeLabel, itemName, deleteButton);
                 deleteButton.setOnAction(e -> {
                 grid.getChildren().remove(itemBox);
-                System.out.println("Ønske '" + item.getName() + "' slettet.");
+                System.out.println("Wish '" + item.getName() + "' deleted.");
                  });
             } else {
                 itemBox.getChildren().addAll(timeLabel, itemName);
