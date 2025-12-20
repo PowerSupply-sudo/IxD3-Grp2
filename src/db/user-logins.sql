@@ -17,6 +17,7 @@ INSERT INTO users (
 
     ('Nicklas', '1234'),
     ('Sarah', '4321'),
-    ('Jens', 'nej');
+    ('Jens', 'nej'),
+    ('test', '1234');
 
     COMMIT;
