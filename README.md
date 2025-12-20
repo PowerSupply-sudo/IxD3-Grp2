@@ -2,10 +2,7 @@ Following repo is developed as part of a semester project at Aalborg University 
 Line: Interactions Design (IxD)
 main: Main branch and the up to date relased version of the program.
 
-Disregard me
-
-
-how to run: 
+how to run the program: 
 
 (IMPORTANT: if MySQL workbench is installed, it occupies the server with the port "3000" on startup. go services.msc, find MySQL94 and change startup from automatic to manual. close the running instance as well.)
 

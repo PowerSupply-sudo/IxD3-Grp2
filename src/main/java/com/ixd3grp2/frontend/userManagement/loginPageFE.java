@@ -3,6 +3,7 @@ package com.ixd3grp2.frontend.userManagement;
 import java.sql.SQLException;
 
 import com.ixd3grp2.DBConnection;
+import com.ixd3grp2.auth.AuthService;
 import com.ixd3grp2.frontend.homePageFE;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -57,15 +58,11 @@ public class loginPageFE {
         btnLogin.setOnAction(e -> {
             var email = emailInput.getText();
             var password = passInput.getText();
-            try {
-                if (db.login(email, password)){
+                if (new AuthService().verifyLogin(email, password)){
                     new homePageFE().start(stage);
                 } else {
                     System.out.println("user not real :unicorn:");
                 }
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
         });
 
         // 6. SECTION SPACER (Moves Sign Up down)
@@ -82,19 +79,27 @@ public class loginPageFE {
             new homePageFE().start(stage);
         });
 
-        // Sign up keeps the arrow style as requested
-        HBox signupContainer = createArrowInputField("example@gmail.com", false, regularFont, () -> {
+        // Sign up button instead of text field
+        Button btnSignup = new Button("Sign up");
+        btnSignup.setFont(regularFont);
+        btnSignup.setMaxWidth(Double.MAX_VALUE/2);
+        btnSignup.getStyleClass().add("login-button");  // This is correct
+        btnSignup.setOnAction(e -> {
             registerPageFE register = new registerPageFE(db);
             stage.setScene(register.getScene(stage));
         });
+
+        HBox signupContainer = new HBox(btnSignup);
+        signupContainer.setAlignment(Pos.CENTER_RIGHT);
+        signupContainer.getStyleClass().add("input-box");
 
         contentBox.getChildren().addAll(
                 spacer,
                 emailInput, 
                 passInput, 
                 forgotContainer,
-                btnLogin,       // <--- Added Button
-                sectionSpacer,  // <--- Added Spacer
+                btnLogin,       
+                sectionSpacer,  
                 lblOrSignup, 
                 signupContainer
         );
